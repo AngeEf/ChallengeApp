@@ -1,0 +1,29 @@
+.section {
+    flex: 1 0 50%;
+    border: 1px solid red;
+}
+.section_cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 50px 15px;
+}
+.section_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section_box {
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+/* .section_content {
+    flex: 1 0 70%;
+} */
+.section_img {
+    width: 100%;
+   
+    
+}

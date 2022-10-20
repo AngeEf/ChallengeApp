@@ -1,0 +1,6 @@
+.categoryView {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    border: 1px solid red;
+}
