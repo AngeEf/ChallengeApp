@@ -5,8 +5,13 @@ export default function CategoryView() {
   // communities
   return (
     <div>
+<<<<<<< HEAD
       {/* <Section />
       <Section /> */}
+=======
+      {/* <Section /> */}
+      {/* <Section /> */}
+>>>>>>> main
     </div>
   );
 }

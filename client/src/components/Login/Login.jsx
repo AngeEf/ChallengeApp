@@ -7,7 +7,7 @@ export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
-    <form className="mt-5" onSubmit={(e) => { dispatch(loginUser(e, Object.fromEntries(new FormData(e.target)))); navigate('/'); }}>
+    <form onSubmit={(e) => { dispatch(loginUser(e, Object.fromEntries(new FormData(e.target)))); navigate('/'); }}>
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Email
