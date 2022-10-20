@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
-import NavComponent from './components/NavComponent/NavComponent';
 import MainPage from './components/MainPage/MainPage';
 import CategotyView from './components/CategoryView/CategoryView';
 import CommunityView from './components/CommunityView/CommunityView';
