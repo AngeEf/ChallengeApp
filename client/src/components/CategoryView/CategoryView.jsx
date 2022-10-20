@@ -7,17 +7,9 @@ export default function CategoryView() {
   // challenges
   // communities
   return (
-    <div>
-      <Col>
-        <div className={style.section}>
-          <Section />
-        </div>
-      </Col>
-      <Col>
-        <div className={style.section}>
-          <Section />
-        </div>
-      </Col>
+    <div className={style.categoryView}>
+      <Section />
+      <Section />
     </div>
   );
 }

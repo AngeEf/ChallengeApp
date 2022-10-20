@@ -1,5 +1,6 @@
-.section {
+.categoryView {
     display: flex;
     flex-direction: column;
-    height: 90%;
+    height: 70vh;
+    border: 1px solid red;
 }
