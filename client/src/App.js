@@ -6,10 +6,12 @@ import CategotyView from './components/CategoryView/CategoryView';
 import CommunityView from './components/CommunityView/CommunityView';
 import SectionView from './components/SectionView/SectionView';
 import ChallengeView from './components/ChallengeView/ChallengeView';
+import MyNavbar from './components/NavComponent/NavComponent';
 
 function App() {
   return (
     <Container>
+      <MyNavbar />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/:category" element={<CategotyView />} />
