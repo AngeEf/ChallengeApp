@@ -1,0 +1,23 @@
+.info {
+  flex: 1 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.info_img {
+  /* width: 500px;
+  height: 400px; */
+  overflow: hidden;
+  flex-basis: 30%;
+  display: flex;
+  justify-content: center;
+
+}
+.info_photo {
+  display: block;
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  object-position: center center;
+}
