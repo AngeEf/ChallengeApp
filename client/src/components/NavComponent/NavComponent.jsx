@@ -8,7 +8,7 @@ export default function MyNavbar() {
   const user = useSelector((state) => state.user);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{ backgroundColor: '#e3f2fd', marginBottom: '2rem' }}>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light test" style={{ backgroundColor: '#e3f2fd', marginBottom: '2rem' }}>
       <div className="container-fluid">
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">

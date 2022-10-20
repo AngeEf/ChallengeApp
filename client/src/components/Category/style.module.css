@@ -1,0 +1,16 @@
+.category {
+  flex: 1 0 50%;
+}
+
+.category_box {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 5px;
+}
+
+.category_type {
+  width: 100%;
+  font-size: 14px !important;
+}
