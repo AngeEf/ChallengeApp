@@ -1,6 +1,8 @@
 .section {
-    flex: 1 0 50%;
+    /* flex: 1 0 50%; */
+    height: 50vh;
     border: 1px solid red;
+    
 }
 .section_cards {
     display: grid;
