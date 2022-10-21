@@ -3,6 +3,7 @@
   background-color: #f4d2bc;
   width: 100%;
   position: fixed;
+  z-index: 1000;
 }
 
 /* .navbar_logo {
