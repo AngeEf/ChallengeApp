@@ -71,7 +71,7 @@ export default function SectionCommunities() {
         </div>
       </div>
       {/* section_cards */}
-      <Button variant="link" className={style.card_btn} onClick={() => navigate('/category/group')}>See more info</Button>
+      <Button variant="link" className={style.card_btn} onClick={() => navigate('/category/community')}>See more info</Button>
     </div>
   );
 }
