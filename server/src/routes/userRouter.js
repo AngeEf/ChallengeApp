@@ -10,7 +10,7 @@ router.post('/signup', async (req, res) => {
     try {
       const [user, created] = await User.findOrCreate({
         where: { email },
-        defaults: { name, hashpass: await bcrypt.hash(password, 10) },
+        defaults: { name, password: await bcrypt.hash(password, 10) },
       });
       if (created) {
         const sessionUser = JSON.parse(JSON.stringify(user));
@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
       const user = await User.findOne({
         where: { email },
       });
-      if (await bcrypt.compare(password, user.hashpass)) {
+      if (await bcrypt.compare(password, user.password)) {
         const sessionUser = JSON.parse(JSON.stringify(user));
         delete sessionUser.hashpass;
         req.session.user = sessionUser;
