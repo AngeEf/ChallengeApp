@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import MainPage from './components/MainPage/MainPage';
 import CategotyView from './components/CategoryView/CategoryView';
