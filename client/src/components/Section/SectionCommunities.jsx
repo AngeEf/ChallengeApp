@@ -3,11 +3,11 @@ import { Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import style from './style.module.css';
 
-export default function Section() {
+export default function SectionCommunities() {
   const navigate = useNavigate();
   return (
     <div className={style.section}>
-      <h2 className={style.section_title}>Challenges</h2>
+      <h2 className={style.section_title}>Сообщества</h2>
       <div className={style.section_content}>
 
         <div className={style.cards}>
