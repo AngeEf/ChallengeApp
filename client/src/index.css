@@ -17,9 +17,14 @@ body {
 .page {
   /* height: 100vh; */
 }
-.wrapper {
-  max-width: 1400px;
+.content {
+  max-width: 1200px;
+  padding-top: 8vh;
+  margin: 0 auto;
 }
+/* .wrapper {
+  max-width: 1200px;
+} */
 #nav-dropdown {
   color: #3f4238;
   padding: 12px 16px 0px;
