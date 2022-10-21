@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
-import Section from '../Section/Section';
+import SectionChallenges from '../Section/SectionChallenges';
+import SectionCommunities from '../Section/SectionCommunities';
 import style from './style.module.css';
 
 export default function CategoryView() {
@@ -8,8 +9,8 @@ export default function CategoryView() {
   // communities
   return (
     <div className={style.categoryView}>
-      <Section />
-      <Section />
+      <SectionChallenges />
+      <SectionCommunities />
     </div>
   );
 }
