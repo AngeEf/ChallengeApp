@@ -1,0 +1,45 @@
+.challenge {
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.details {
+  flex: 1 0 60%;
+  padding: 0 30px;
+
+
+}
+.details_title {
+  font-size: 30px;
+  margin: 20px 0;
+}
+.details_subtitle {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.details_data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px 30px;
+  margin: 20px 0 40px ;
+}
+.image {
+  flex: 1 0 40%;
+  /* background-color: pink; */
+}
+.image_box {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center center;
+  overflow: hidden;
+  overflow: hidden;
+}
+.image_photo {
+  width: 100%;
+}
+
