@@ -25,13 +25,19 @@ module.exports = {
       progress: {
         type: Sequelize.TEXT,
       },
+      status: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW'),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW'),
       },
     });
   },
