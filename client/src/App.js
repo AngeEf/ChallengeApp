@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 // import { Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import MainPage from './components/MainPage/MainPage';
-import CategotyView from './components/CategoryView/CategoryView';
+import CategoryView from './components/CategoryView/CategoryView';
 import CommunityView from './components/CommunityView/CommunityView';
 import ChallengeView from './components/ChallengeView/ChallengeView';
 import NavComponent from './components/NavComponent/NavComponent';
@@ -27,7 +27,7 @@ function App() {
       <div className="content">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/category/:category" element={<CategotyView />} />
+          <Route path="/category/:category" element={<CategoryView />} />
           <Route path="/category/challenge" element={<SectionViewChallenge />} />
           <Route path="/category/community" element={<SectionViewCommunity />} />
           <Route path="/community/:id" element={<CommunityView />} />
