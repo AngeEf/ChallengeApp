@@ -11,7 +11,7 @@ export default function CommunityView() {
   return (
     <div className={`${style.wrapper}`}>
       <div>
-        <img className={`${style.img}`} src={background} alt="background" />
+        <img className={`${style.background}`} src={background} alt="background" />
         <div className={`${style.community__wrapper}`}>
           <h2 className={`${style.community__title}`}>Беговое сообщество</h2>
           <button className={`${style.community__btn}`} type="submit" onClick={() => navigate('/login')}>Присоединиться</button>

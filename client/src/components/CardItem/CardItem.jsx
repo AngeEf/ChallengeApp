@@ -1,10 +1,8 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import style from './style.module.css';
 
-export default function CardItem() {
-  const navigate = useNavigate();
+export default function CardItem({ navigateHandler }) {
   return (
     <>
       <Card className={style.card}>
@@ -17,7 +15,7 @@ export default function CardItem() {
             Some quick example text to build on the card title and make up the
             bulk of the cards content.
           </Card.Text>
-          <Button variant="primary" onClick={() => navigate(`/challenge/${1}`)}>Go somewhere</Button>
+          <Button variant="primary" onClick={navigateHandler}>Go somewhere</Button>
         </Card.Body>
       </Card>
       {/* cards 2 */}
