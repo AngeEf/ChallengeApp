@@ -12,19 +12,19 @@ import SingUp from './components/SignUp/SignUp';
 
 function App() {
   return (
-    <Container>
+    <div className="page">
       <NavComponent />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/:category" element={<CategotyView />} />
-        <Route path="/:category/group" element={<SectionView />} />
+        <Route path="/category/:category" element={<CategotyView />} />
+        <Route path="/category//group" element={<SectionView />} />
         <Route path="/community/:id" element={<CommunityView />} />
         <Route path="/challenge/:id" element={<ChallengeView />} />
         <Route path="/challenge/:id" element={<ChallengeView />} />
         <Route path="/login/" element={<Login />} />
         <Route path="/signup/" element={<SingUp />} />
       </Routes>
-    </Container>
+    </div>
   );
 }
 
