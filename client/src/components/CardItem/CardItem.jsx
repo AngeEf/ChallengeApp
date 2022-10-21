@@ -2,8 +2,7 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import style from './style.module.css';
 
-export default function CardItem({navigateHandler}) {
-
+export default function CardItem({ navigateHandler }) {
   return (
     <>
       <Card className={style.card}>
