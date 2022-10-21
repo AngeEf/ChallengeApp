@@ -1,103 +1,103 @@
 .wrapper {
-    display: flex;
-    padding: 2rem;
-    padding-top: 0;
+  display: flex;
+  padding: 2rem;
+  padding-top: 0;
 }
 
-img {
-    height: 20rem;
-    width: 100%;
+.background {
+  height: 20rem;
+  width: 100%;
 }
 
 .community__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .community__title {
-    color: #22223b
+  color: #22223b
 }
 
 .community__left {
-    flex: 1 0 75%;
+  flex: 1 0 75%;
 }
 
 .community__right {
-    flex: 1 0 25%;
-    padding-left: 2rem;
-    padding-top: 1rem;
+  flex: 1 0 25%;
+  padding-left: 2rem;
+  padding-top: 1rem;
 }
 
 .community__desc {
-    margin-top: 1rem;
-    padding: .5rem;
-    font-weight: 500;
-    font-size: 18px;
-    color: #4a4e69;
+  margin-top: 1rem;
+  padding: .5rem;
+  font-weight: 500;
+  font-size: 18px;
+  color: #4a4e69;
 }
 
 
 
 .community__btn {
-    border-radius: 15px;
-    width: 10rem;
-    height: 3rem;
-    border: none;
-    background-color: #ddbea9;
-    font-size: 16px;
-    transition: .7s;    
+  border-radius: 15px;
+  width: 10rem;
+  height: 3rem;
+  border: none;
+  background-color: #ddbea9;
+  font-size: 16px;
+  transition: .7s;
 }
 
 .community__btn:hover {
-    font-size: 15px;
-    transform: scale(.97);
-    transition: .7s;   
-    color: beige;
+  font-size: 15px;
+  transform: scale(.97);
+  transition: .7s;
+  color: beige;
 
 }
 
 .admin__post {
-    margin-top: 2rem;
-    padding: 1rem;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.122) 0px 1px 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.122) 0px 1px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .admin__postTitle {
-    color: #6e1423;
-    display: flex;
-    align-items: center;
-    margin-bottom: 0;
-    margin-left: 1rem;
-    font-size: 18px;
+  color: #6e1423;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  margin-left: 1rem;
+  font-size: 18px;
 }
 
 .admin__postText {
-    color: #3a506b;
+  color: #3a506b;
 }
 
 
 .admin__postHeader {
-    display: flex;
-    align-items: center;
-    align-self: flex-start;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-bottom: 1rem;
 }
 
 .admin__postAvatar {
-    border-radius: 50%;
-    height: 4rem;
-    width: 4rem;
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
 }
 
 .admin__postIcon {
-    width: 20;
-    height: 20;
-    color: #6e1423;
-    font-size: 24px;
+  width: 20;
+  height: 20;
+  color: #6e1423;
+  font-size: 24px;
 }
