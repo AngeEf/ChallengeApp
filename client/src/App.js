@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import MainPage from './components/MainPage/MainPage';
 import CategotyView from './components/CategoryView/CategoryView';
 import CommunityView from './components/CommunityView/CommunityView';
@@ -9,8 +10,15 @@ import ChallengeView from './components/ChallengeView/ChallengeView';
 import NavComponent from './components/NavComponent/NavComponent';
 import Login from './components/Login/Login';
 import SingUp from './components/SignUp/SignUp';
+import { checkAuth } from './app/slices/userSlice';
 
 function App() {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, []);
   return (
     <div className="page">
       <NavComponent />
