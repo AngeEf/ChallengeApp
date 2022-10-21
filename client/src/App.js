@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/category/:category" element={<CategotyView />} />
-        <Route path="/category//group" element={<SectionView />} />
+        <Route path="/category/group" element={<SectionView />} />
         <Route path="/community/:id" element={<CommunityView />} />
         <Route path="/challenge/:id" element={<ChallengeView />} />
         <Route path="/challenge/:id" element={<ChallengeView />} />
