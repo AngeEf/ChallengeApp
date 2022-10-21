@@ -11,6 +11,7 @@ import Login from './components/Login/Login';
 import SingUp from './components/SignUp/SignUp';
 import Progress from './components/Progress/Progress';
 import { checkAuth } from './app/slices/userSlice';
+import Profile from './components/Profile/Profile';
 import SectionViewChallenge from './components/SectionView/SectionViewChallenge';
 import SectionViewCommunity from './components/SectionView/SectionViewCommunity';
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/progress/:id" element={<Progress />} />
           <Route path="/login/" element={<Login />} />
           <Route path="/signup/" element={<SingUp />} />
+          <Route path="/profile/:id" element={<Profile />} />
         </Routes>
       </div>
     </div>
