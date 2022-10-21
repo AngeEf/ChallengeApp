@@ -1,46 +1,26 @@
 import React from 'react';
+import OnePost from '../OnePost.jsx/OnePost';
+import style from './style.module.css';
 
 export default function Posts() {
   return (
     <div>
-      <h5>Posts</h5>
-      <div style={{
-        marginTop: '1rem', border: '1px solid red', padding: '.5rem', backgroundColor: '#edddd4',
-      }}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      <div className={`${style.wrapper}`} />
+      <div className={`${style.label}`}>
+        <label className={`${style}`} htmlFor="hidden__input">
+          <input id="hidden__input" className={`${style.checkbox}`} type="checkbox" />
+          Добавить пост...
+          <div className={`${style.hidden__wrapper}`}>
+            <textarea className={`${style.posts__textarea}`} name="text" placeholder="Расскажите о ваших успехах..." />
+            <div>
+              <button className={`${style.posts__btn}`} type="submit">Добавить фото</button>
+              <button className={`${style.posts__btn}`} type="submit">Опубликовать</button>
+              <button className={`${style.posts__btn__red}`} type="submit">Задание</button>
+            </div>
+          </div>
+        </label>
       </div>
-      <div style={{
-        marginTop: '1rem', border: '1px solid red', padding: '.5rem', backgroundColor: '#edddd4',
-      }}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </div>
-      <div style={{
-        marginTop: '1rem', border: '1px solid red', padding: '.5rem', backgroundColor: '#edddd4',
-      }}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </div>
-      <div style={{
-        marginTop: '1rem', border: '1px solid red', padding: '.5rem', backgroundColor: '#edddd4',
-      }}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </div>
-      <div style={{
-        marginTop: '1rem', border: '1px solid red', padding: '.5rem', backgroundColor: '#edddd4',
-      }}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </div>
-      <div style={{
-        marginTop: '1rem', border: '1px solid red', padding: '.5rem', backgroundColor: '#edddd4',
-      }}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </div>
-
+      <OnePost />
     </div>
   );
 }
