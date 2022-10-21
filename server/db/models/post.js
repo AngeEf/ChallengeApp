@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     user_id: DataTypes.INTEGER,
     image: DataTypes.TEXT,
     content: DataTypes.TEXT,
+    task: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'Post',
