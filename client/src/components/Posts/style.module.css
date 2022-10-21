@@ -1,0 +1,65 @@
+.posts__wrapper {
+    margin-top: 3rem;
+    padding: 1rem;
+}
+
+label {
+    margin-top: 2rem;
+    font-size: 18px;
+    color: grey;
+    cursor: pointer;
+    width: 100%;
+}
+
+.posts__btn {
+    margin-left: 2rem;
+    border-radius: 15px;
+    width: 10rem;
+    height: 2rem;
+    border: none;
+    background-color: #ffc9b9;
+    font-size: 16px;
+}
+
+.posts__btn:first-child {
+    margin-left: 0;
+}
+
+.posts__btn__red {
+    margin-left: 2rem;
+    border-radius: 15px;
+    width: 10rem;
+    height: 2rem;
+    border: none;
+    background-color: #bb8588;
+    font-size: 16px;
+}
+
+.hidden__wrapper {    
+    display: none;
+}
+
+.posts__textarea {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: .5rem;
+    width: 100%;
+    border: 1px solid lightgrey;
+    font-size: 12px;
+    text-decoration: none;
+    outline: none;
+}
+
+.checkbox {
+    visibility: hidden;
+}
+
+.checkbox:checked + .hidden__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox:checked + label {
+    visibility: hidden;
+}
+

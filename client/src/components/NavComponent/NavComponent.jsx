@@ -72,6 +72,8 @@ export default function MyNavbar() {
         <li className={`${style.navbar_listItem} ${style.navbar_listItem__set}`}>
           <div className="d-flex navbar_set">
             <NavLink to="/" className={`${style.navbar_link}`} aria-current="page"><i className="bi bi-house-door-fill" /></NavLink>
+            <NavLink to="/progress/1" className={style.navbar_link} aria-current="page"><i className="bi bi-trophy-fill" /></NavLink>
+
             <Nav>
               <NavDropdown
                 id="nav-dropdown"
@@ -80,7 +82,7 @@ export default function MyNavbar() {
               // menuVariant="dark"
               >
                 <NavDropdown.Item>
-                  <NavLink to="/:id/profile" className={style.navbar_link} aria-current="page">Профиль</NavLink>
+                  <NavLink to="/profile/:id" className={style.navbar_link} aria-current="page">Профиль</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <NavLink to="/signup" className={style.navbar_link}>Зарегистрироваться</NavLink>
