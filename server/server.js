@@ -3,10 +3,12 @@ const morgan = require('morgan');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const path = require('path');
 const userRouter = require('./src/routes/userRouter');
 const communityRouter = require('./src/routes/communityRouter');
 const challengeRouter = require('./src/routes/challengeRouter');
 const postRouter = require('./src/routes/postRouter');
+const uploadRouter = require('./src/routes/uploadRoute');
 
 require('dotenv').config();
 
@@ -14,8 +16,9 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(morgan('dev'));
-app.use(express.json());
+app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(session({
   name: 'sid',
   secret: process.env.SESSION_SECRET ?? 'test',
@@ -27,15 +30,18 @@ app.use(session({
     httpOnly: true,
   },
 }));
+
 app.use(cors({
   credentials: true,
   origin: true,
 }));
+
 app.use((req, res, next) => {
   res.locals.user = req.session.user;
   next();
 });
 
+app.use('/api', uploadRouter);
 app.use('/api/user', userRouter);
 app.use('/api/community', communityRouter);
 app.use('/api/challenge', challengeRouter);

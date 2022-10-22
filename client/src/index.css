@@ -21,6 +21,7 @@ body {
   max-width: 1200px;
   padding-top: 8vh;
   margin: 0 auto;
+  border: 1px solid red;
 }
 /* .wrapper {
   max-width: 1200px;

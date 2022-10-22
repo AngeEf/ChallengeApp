@@ -5,7 +5,7 @@ import style from './style.module.css';
 
 export default function Progress() {
   return (
-    <div className={style.container}>
+    <div className={style.progress}>
       <UserGames />
       <UserSubscription />
     </div>
