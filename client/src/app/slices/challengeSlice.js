@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import axios from 'axios';
+import axios from 'axios';
 
-const initialState = {};
+const initialState = [];
 
 const challengeSlice = createSlice({
   name: 'challengeSlice',
@@ -10,14 +10,31 @@ const challengeSlice = createSlice({
     setChallenges(state, action) {
       return action.payload;
     },
+    setOneChallenge(state, action) {
+      return action.payload;
+    },
+    setChallengeByCategoryLimit(state, action) {
+      return action.payload;
+    },
   },
 });
 
-export const { setChallenges } = challengeSlice.actions;
+export const { setChallenges, setOneChallenge, setChallengeByCategoryLimit } = challengeSlice.actions;
 export default challengeSlice.reducer;
 
-// export const getAllChallenges = () => (dispatch) => {
-//   axios.post('/api/challenge/')
-//     .then((res) => dispatch(setChallenges(res.data)))
-//     .catch(console.log);
-// };
+export const getChallenges = () => (dispatch) => {
+  axios.get('/api/challenge')
+    .then((res) => dispatch(setChallenges(res.data)))
+    .catch(console.log);
+};
+
+export const getChallengesByCategoryLimit = (category) => (dispatch) => {
+  axios(`/api/category/challenge/${category}`)
+    .then((res) => dispatch(setChallengeByCategoryLimit(res.data)));
+};
+
+export const getOneCommunity = (id) => (dispatch) => {
+  axios.get(`/api/challenge/${id}`)
+    .then((res) => dispatch(setOneChallenge(res.data)))
+    .catch(console.log);
+};

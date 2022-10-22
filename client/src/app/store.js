@@ -7,7 +7,7 @@ import userSlice from './slices/userSlice';
 export default configureStore({
   reducer: {
     user: userSlice,
-    challenge: challengeSlice,
+    challenges: challengeSlice,
     communities: communitySlice,
     member: memberSlice,
   },

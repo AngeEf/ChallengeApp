@@ -5,7 +5,7 @@ module.exports = {
       image: 'https://photo2.wambacdn.net/21/47/47/1755747412/1832025206_square.jpg?hash=PLnty8-qdB11LGr78X0BEA&expires=64060578000&updated=1516444254',
       title: '«World Class Таганский»',
       subtitle: 'Самое время ещё лучше подготовиться к пляжному сезону!',
-      category: 'Sport',
+      category: 'food',
       admin_id: 2,
       description: `
       Правда ли, что заниматься спортом лучше во второй половине дня? Или всё же утром? Медицинский редактор The Challenger рассказывает, когда лучше устроить тренировку, что такое загадочные циркадные ритмы и на что они влияют.
@@ -20,7 +20,7 @@ module.exports = {
       image: 'https://photo2.wambacdn.net/21/47/47/1755747412/1832025206_square.jpg?hash=PLnty8-qdB11LGr78X0BEA&expires=64060578000&updated=1516444254',
       title: '«World Class Таганский»',
       subtitle: 'Самое время ещё лучше подготовиться к пляжному сезону!',
-      category: 'Sport',
+      category: 'food',
       admin_id: 1,
       description: `
       Правда ли, что заниматься спортом лучше во второй половине дня? Или всё же утром? Медицинский редактор The Challenger рассказывает, когда лучше устроить тренировку, что такое загадочные циркадные ритмы и на что они влияют.
@@ -35,7 +35,7 @@ module.exports = {
       image: 'https://photo2.wambacdn.net/21/47/47/1755747412/1832025206_square.jpg?hash=PLnty8-qdB11LGr78X0BEA&expires=64060578000&updated=1516444254',
       title: '«World Class Таганский»',
       subtitle: 'Самое время ещё лучше подготовиться к пляжному сезону!',
-      category: 'Sport',
+      category: 'food',
       admin_id: 3,
       description: `
       Правда ли, что заниматься спортом лучше во второй половине дня? Или всё же утром? Медицинский редактор The Challenger рассказывает, когда лучше устроить тренировку, что такое загадочные циркадные ритмы и на что они влияют.
@@ -50,7 +50,7 @@ module.exports = {
       image: 'https://photo2.wambacdn.net/21/47/47/1755747412/1832025206_square.jpg?hash=PLnty8-qdB11LGr78X0BEA&expires=64060578000&updated=1516444254',
       title: '«World Class Таганский»',
       subtitle: 'Самое время ещё лучше подготовиться к пляжному сезону!',
-      category: 'Sport',
+      category: 'sport',
       admin_id: 2,
       description: `
       Правда ли, что заниматься спортом лучше во второй половине дня? Или всё же утром? Медицинский редактор The Challenger рассказывает, когда лучше устроить тренировку, что такое загадочные циркадные ритмы и на что они влияют.
@@ -65,7 +65,7 @@ module.exports = {
       image: 'https://photo2.wambacdn.net/21/47/47/1755747412/1832025206_square.jpg?hash=PLnty8-qdB11LGr78X0BEA&expires=64060578000&updated=1516444254',
       title: '«World Class Таганский»',
       subtitle: 'Самое время ещё лучше подготовиться к пляжному сезону!',
-      category: 'Sport',
+      category: 'sport',
       admin_id: 3,
       description: `
       Правда ли, что заниматься спортом лучше во второй половине дня? Или всё же утром? Медицинский редактор The Challenger рассказывает, когда лучше устроить тренировку, что такое загадочные циркадные ритмы и на что они влияют.
@@ -80,7 +80,7 @@ module.exports = {
       image: 'https://photo2.wambacdn.net/21/47/47/1755747412/1832025206_square.jpg?hash=PLnty8-qdB11LGr78X0BEA&expires=64060578000&updated=1516444254',
       title: '«World Class Таганский»',
       subtitle: 'Самое время ещё лучше подготовиться к пляжному сезону!',
-      category: 'Sport',
+      category: 'sport',
       admin_id: 1,
       description: `
       Правда ли, что заниматься спортом лучше во второй половине дня? Или всё же утром? Медицинский редактор The Challenger рассказывает, когда лучше устроить тренировку, что такое загадочные циркадные ритмы и на что они влияют.
@@ -95,7 +95,7 @@ module.exports = {
       image: 'https://photo2.wambacdn.net/21/47/47/1755747412/1832025206_square.jpg?hash=PLnty8-qdB11LGr78X0BEA&expires=64060578000&updated=1516444254',
       title: '«World Class Таганский»',
       subtitle: 'Самое время ещё лучше подготовиться к пляжному сезону!',
-      category: 'Sport',
+      category: 'sport',
       admin_id: 3,
       description: `
       Правда ли, что заниматься спортом лучше во второй половине дня? Или всё же утром? Медицинский редактор The Challenger рассказывает, когда лучше устроить тренировку, что такое загадочные циркадные ритмы и на что они влияют.
