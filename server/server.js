@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 3001;
 app.use(morgan('dev'));
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(session({
   name: 'sid',
   secret: process.env.SESSION_SECRET ?? 'test',
@@ -31,8 +32,6 @@ app.use(cors({
   credentials: true,
   origin: true,
 }));
-
-app.use('./images', express.static(path.join(__dirname, 'images')));
 
 app.use((req, res, next) => {
   res.locals.user = req.session.user;
