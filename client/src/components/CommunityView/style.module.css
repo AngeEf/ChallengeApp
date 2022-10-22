@@ -5,8 +5,10 @@
 }
 
 .background {
-  height: 20rem;
-  width: 100%;
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  object-position:50% 50%;
 }
 
 .community__wrapper {
