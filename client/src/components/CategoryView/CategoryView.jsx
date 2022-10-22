@@ -7,6 +7,7 @@ import style from './style.module.css';
 export default function CategoryView() {
   // challenges
   // communities
+
   return (
     <div className={style.categoryView}>
       <SectionChallenges />

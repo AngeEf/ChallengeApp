@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { getCommunities } from '../../app/slices/communitySlice';
 import CardItem from '../CardItem/CardItem';
 import style from './style.module.css';
 
 export default function SectionViewCommunity() {
-  const { id } = useParams();
   const navigate = useNavigate();
-  const navigateHandler = () => navigate(`/community/${id}`);
+  const dispatch = useDispatch();
+
+  const communities = useSelector((state) => state.communities);
+
+  useEffect(() => {
+    dispatch(getCommunities());
+  }, []);
+
+  const navigateHandler = (id) => navigate(`/community/${id}`);
+
   return (
     <>
       <div className={style.section_data}>
@@ -18,7 +28,8 @@ export default function SectionViewCommunity() {
         <Button type="button">Создать сообщество</Button>
       </div>
       <div className={style.section}>
-        <CardItem navigateHandler={navigateHandler} />
+        {communities?.map((el) => <CardItem key={el.id} community={el} navigateHandler={navigateHandler} />)}
+
       </div>
     </>
   );
