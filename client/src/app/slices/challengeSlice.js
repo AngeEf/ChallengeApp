@@ -23,7 +23,7 @@ export const { setChallenges, setOneChallenge, setChallengeByCategoryLimit } = c
 export default challengeSlice.reducer;
 
 export const getChallenges = () => (dispatch) => {
-  axios.get('/api/challenge')
+  axios.get('/api/challenge/all')
     .then((res) => dispatch(setChallenges(res.data)))
     .catch(console.log);
 };

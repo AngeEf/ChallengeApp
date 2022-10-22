@@ -23,7 +23,7 @@ export default function MyNavbar() {
           <div className={style.navbar_group}>
             <input type="text" className={`${style.navbar_input}`} />
             <button type="button" className={`${style.navbar_btn}`}>
-              <i className="bi bi-search" />
+              <i className="bi bi-search mx-1" />
             </button>
           </div>
           {/* <div className="input-group input-group-sm nav-input-group">

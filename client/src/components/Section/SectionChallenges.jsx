@@ -27,8 +27,8 @@ export default function SectionChallenges() {
                 <img className={style.card_img} src={el.image} alt="challenge" />
               </div>
               <div className={style.card_content}>
-                <h3>{el.title}</h3>
-                <h5>{el.subtitle}</h5>
+                <h3 className={style.card_title}>{el.title}</h3>
+                <h5 className={style.card_subtitle}>{el.subtitle}</h5>
               </div>
             </div>
           ))}
@@ -37,7 +37,7 @@ export default function SectionChallenges() {
         </div>
       </div>
       {/* section_cards */}
-      <Button variant="link" className={style.card_btn} onClick={() => navigate('/category/challenge')}>See more info</Button>
+      <button type="button" className={style.card_btn} onClick={() => navigate('/category/challenge')}>Посмотреть все</button>
     </div>
   );
 }

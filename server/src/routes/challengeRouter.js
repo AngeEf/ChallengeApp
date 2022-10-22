@@ -4,20 +4,20 @@ const { Challenge } = require('../../db/models');
 const router = express.Router();
 
 // GET ALL CHALLENGES
-router.get('/', async (req, res) => {
+router.get('/all', async (req, res) => {
   const challenges = await Challenge.findAll();
   res.json(challenges);
   // return console.log(res.json(challenges));
 });
 
 // GET CHALLENGE BY CATEGORY
-router.get('/all/:category', async (req, res) => {
-  const { category } = req.params;
-  const challengesByCategory = await Challenge.findAll({
-    where: { category },
-  });
-  return res.json(challengesByCategory);
-});
+// router.get('/all/:category', async (req, res) => {
+//   const { category } = req.params;
+//   const challengesByCategory = await Challenge.findAll({
+//     where: { category },
+//   });
+//   return res.json(challengesByCategory);
+// });
 
 // GET ONE CHALLENGE
 // router.get('/:id', async (req, res) => {
