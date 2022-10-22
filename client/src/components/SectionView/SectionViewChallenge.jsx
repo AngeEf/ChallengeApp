@@ -1,13 +1,14 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import CardItem from '../CardItem/CardItem';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import CardItemChallenge from '../CardItemChallenge/CardItemChallenge';
 import style from './style.module.css';
+import { getChallenges } from '../../app/slices/challengeSlice';
 
 export default function SectionViewChallenge() {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const navigateHandler = () => navigate(`/challenge/${id}`);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getChallenges());
+  // }, []);
   return (
     <>
       {/* <div className={style.section_data}>
@@ -18,7 +19,7 @@ export default function SectionViewChallenge() {
         <Button type="button">Создать сообщество</Button>
       </div> */}
       <div className={style.section}>
-        <CardItem navigateHandler={navigateHandler} />
+        <CardItemChallenge />
       </div>
     </>
   );

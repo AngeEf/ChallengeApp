@@ -7,6 +7,7 @@ const path = require('path');
 const userRouter = require('./src/routes/userRouter');
 const communityRouter = require('./src/routes/communityRouter');
 const challengeRouter = require('./src/routes/challengeRouter');
+const categoryRouter = require('./src/routes/categoryRouter');
 const postRouter = require('./src/routes/postRouter');
 const uploadRouter = require('./src/routes/uploadRoute');
 
@@ -43,6 +44,7 @@ app.use((req, res, next) => {
 
 app.use('/api', uploadRouter);
 app.use('/api/user', userRouter);
+app.use('/api/category', categoryRouter);
 app.use('/api/community', communityRouter);
 app.use('/api/challenge', challengeRouter);
 app.use('/api/post', postRouter);
