@@ -3,7 +3,10 @@ const morgan = require('morgan');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const path = require('path');
 const userRouter = require('./src/routes/userRouter');
+const uploadRouter = require('./src/routes/uploadRoute');
+const apiChallengeRoute = require('./src/routes/apiChallengeRoute');
 
 require('dotenv').config();
 
@@ -11,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(morgan('dev'));
-app.use(express.json());
+app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
   name: 'sid',
@@ -24,15 +27,21 @@ app.use(session({
     httpOnly: true,
   },
 }));
+
 app.use(cors({
   credentials: true,
   origin: true,
 }));
+
+app.use('./images', express.static(path.join(__dirname, 'images')));
+
 app.use((req, res, next) => {
   res.locals.user = req.session.user;
   next();
 });
 
+app.use('/api', uploadRouter);
 app.use('/api/user', userRouter);
+app.use('api/challenge', apiChallengeRoute);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));
