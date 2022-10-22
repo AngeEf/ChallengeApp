@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import CardItemChallenge from '../CardItemChallenge/CardItemChallenge';
 import style from './style.module.css';
-import { getChallenges } from '../../app/slices/challengeSlice';
 
 export default function SectionViewChallenge() {
   // const dispatch = useDispatch();
