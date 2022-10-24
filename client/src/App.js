@@ -14,6 +14,7 @@ import Profile from './components/Profile/Profile';
 import SectionViewChallenge from './components/SectionView/SectionViewChallenge';
 import SectionViewCommunity from './components/SectionView/SectionViewCommunity';
 import NewCommunity from './components/newCommunity/NewCommunity';
+import ProtectedRoute from './helper/ProtectedRoute/ProtectedRoute';
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -33,11 +34,14 @@ function App() {
           <Route path="/category/community" element={<SectionViewCommunity />} />
           <Route path="/community/:id" element={<CommunityView />} />
           <Route path="/challenge/:id" element={<ChallengeView />} />
-          <Route path="/progress/:id" element={<Progress />} />
+          {/* <Route path="/progress/:id" element={<Progress />} /> */}
           <Route path="/login/" element={<Login />} />
           <Route path="/signup/" element={<SingUp />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/community/new" element={<NewCommunity />} />
+          <Route element={<ProtectedRoute isAllowed={!!user.id} redirect="/login" />}>
+            <Route path="/progress/:id" element={<Progress />} />
+          </Route>
         </Routes>
       </div>
     </div>

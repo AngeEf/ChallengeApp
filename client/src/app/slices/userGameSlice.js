@@ -11,13 +11,16 @@ const userGameSlice = createSlice({
       return action.payload;
     },
     oneUserGame(state, action) {
-      console.log(action);
+      // console.log(action);
+      return action.payload;
+    },
+    changeProgress(state, action) {
       return action.payload;
     },
   },
 });
 
-export const { allActiveGameOfUser, oneUserGame } = userGameSlice.actions;
+export const { allActiveGameOfUser, oneUserGame, changeProgress } = userGameSlice.actions;
 export default userGameSlice.reducer;
 
 export const oneUserGameAsync = (id) => (dispatch) => {
@@ -32,5 +35,12 @@ export const allActiveGameOfUserAsync = () => (dispatch) => {
     withCredentials: true,
   })
     .then((res) => dispatch(allActiveGameOfUser(res.data)))
+    .catch(console.log);
+};
+
+export const changeProgressAsync = (obj, id) => (dispatch) => {
+  axios.patch(`./api/game/progress/${id}`, { obj })
+    .then((res) => dispatch(changeProgress(res.data)))
+    .then((res) => dispatch(allActiveGameOfUserAsync()))
     .catch(console.log);
 };
