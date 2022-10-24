@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const { User } = require('../../db/models');
+const { User, Member, Community } = require('../../db/models');
 
 const router = express.Router();
 
@@ -59,6 +59,21 @@ router.post('/check', (req, res) => {
 router.get('/logout', (req, res) => {
   req.session.destroy();
   res.clearCookie('sid').sendStatus(200);
+});
+
+router.get('/check/:community/member', async (req, res) => {
+  if (req.session.user) {
+    try {
+      const member = await Member.findOne({
+        where: { user_id: req.session.user.id, community_id: Number(req.params.community) },
+      });
+      return res.json(member);
+    } catch (e) {
+      console.log(e);
+      return res.sendStatus(500);
+    }
+  }
+  return res.sendStatus(401);
 });
 
 module.exports = router;

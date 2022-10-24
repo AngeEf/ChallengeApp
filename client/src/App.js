@@ -14,6 +14,7 @@ import { checkAuth } from './app/slices/userSlice';
 import Profile from './components/Profile/Profile';
 import SectionViewChallenge from './components/SectionView/SectionViewChallenge';
 import SectionViewCommunity from './components/SectionView/SectionViewCommunity';
+import NewCommunity from './components/newCommunity/NewCommunity';
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -37,6 +38,7 @@ function App() {
           <Route path="/login/" element={<Login />} />
           <Route path="/signup/" element={<SingUp />} />
           <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/community/new" element={<NewCommunity />} />
         </Routes>
       </div>
     </div>

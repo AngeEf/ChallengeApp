@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsToMany(Challenge, { through: 'Game', foreignKey: 'challenge_id' });
       this.hasMany(Post, { foreignKey: 'user_id' });
       this.hasMany(Comment, { foreignKey: 'user_id' });
-      this.hasMany(Community, { foreignKey: 'admit_id' });
+      this.hasMany(Community, { foreignKey: 'admin_id' });
     }
   }
   User.init({
