@@ -20,7 +20,7 @@ module.exports = {
       },
       image: {
         type: Sequelize.TEXT,
-        defaultValue: 'https://cs7.pikabu.ru/post_img/big/2018/11/27/10/1543334589183694984.jpg',
+        defaultValue: 'images/1666618655764--review_ava.png',
       },
       createdAt: {
         allowNull: false,

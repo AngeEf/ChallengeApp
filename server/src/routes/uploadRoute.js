@@ -6,7 +6,7 @@ const { User } = require('../../db/models');
 
 const router = Router();
 
-router.post('/upload', fileMiddleware.single('avatar'), async (req, res) => {
+router.post('/upload/:id', fileMiddleware.single('avatar'), async (req, res) => {
   try {
     console.log('req.file.path------', req.file.path, 'finish-----');
     const edit = await User.update({
@@ -17,9 +17,10 @@ router.post('/upload', fileMiddleware.single('avatar'), async (req, res) => {
     console.log(error, '---');
   }
 });
-router.get('/takephoto/:link', async (req, res) => {
-  console.log('shit', (path.join(__dirname, `../../${req.params.link}`)));
-  res.sendFile(path.join(__dirname, `../../${req.params.link}`));
+router.get('/takepath', async (req, res) => {
+  const user = await User.findOne({ attributes: ['image'], where: { id: req.session.user.id } });
+  console.log(user, 'ussssss');
+  res.json(user);
 });
 
 module.exports = router;

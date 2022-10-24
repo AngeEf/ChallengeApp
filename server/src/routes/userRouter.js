@@ -51,7 +51,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/check', (req, res) => {
   if (req.session.user.id) {
-    return res.json(req.session.user.id);
+    return res.json(req.session.user);
   }
   return res.sendStatus(401);
 });

@@ -22,7 +22,14 @@ export const getMulters = (id) => (dispatch) => {
     .catch(console.log);
 };
 
-// useEffect(() => {
-//   axios.get(`/api/community/communities/${id}`)
-//     .then((res) => setCommunity(res.data));
-// }, []);
+export const editFile = (img, id) => {
+  const data = new FormData();
+  data.append('avatar', img);
+
+  axios.post(`http://localhost:3001/api/upload/${id}`, data, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+    withCredentials: true,
+  });
+};
