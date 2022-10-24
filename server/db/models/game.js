@@ -4,7 +4,8 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class Game extends Model {
-    static associate(model) {
+    static associate({ User }) {
+      this.belongsTo(User, { foreignKey: 'user_id' });
     }
   }
   Game.init({
