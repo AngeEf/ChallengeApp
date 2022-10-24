@@ -14,6 +14,7 @@ import Profile from './components/Profile/Profile';
 import SectionViewChallenge from './components/SectionView/SectionViewChallenge';
 import SectionViewCommunity from './components/SectionView/SectionViewCommunity';
 import NewCommunity from './components/newCommunity/NewCommunity';
+import UpdateCommunity from './components/UpdateCommunity/UpdateCommunity';
 import ProtectedRoute from './helper/ProtectedRoute/ProtectedRoute';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path="/signup/" element={<SingUp />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/community/new" element={<NewCommunity />} />
+          <Route path="/community/:id/update" element={<UpdateCommunity />} />
           {user?.id && (
             <Route element={<ProtectedRoute isAllowed={!!user.id} redirect="/login" />}>
               <Route path="/progress/:id" element={<Progress />} />
