@@ -33,6 +33,21 @@ router.get('/communities/:id', async (req, res) => {
   return res.json(community);
 });
 
+// UPDATE COMMUNITY
+router.put('/communities/:id/update', async (req, res) => {
+  const { id } = req.params;
+  const { input } = req.body;
+  const community = await Community.update(
+    {
+      title: input.title, subtitle: input.subtitle, description: input.description, category: input.category,
+    },
+    {
+      where: { id },
+    },
+  );
+  return res.json(community);
+});
+
 // COUNT COMMUNITY MEMBERS
 router.get('/communities/:id/count', async (req, res) => {
   const { id } = req.params;
@@ -54,9 +69,8 @@ router.get('/communities/:category', async (req, res) => {
 // GET MEMBERS OF COMMUNITY
 router.get('/communities/:id/members', async (req, res) => {
   const { id } = req.params;
-  const members = await Member.findAll({
-    where: { community_id: id },
-    include: [{ model: User }],
+  const members = await User.findAll({
+    include: [{ model: Community, where: { id } }],
   });
   res.json(members);
 });
@@ -67,7 +81,6 @@ router.post('/communities/:id/join', async (req, res) => {
   const newMember = await Member.create({
     community_id: id, user_id: req.session.user.id,
   });
-  // console.log('222222222', newMember);
   res.json(newMember);
 });
 
@@ -82,5 +95,6 @@ router.delete('/communities/:id/', async (req, res) => {
   });
   res.json(newMember);
 });
+
 
 module.exports = router;

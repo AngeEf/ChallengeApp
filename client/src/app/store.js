@@ -1,4 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
+import adminPostSlice from './slices/adminPostSlice';
+import adminSlice from './slices/adminSlice';
 import challengeSlice from './slices/challengeSlice';
 import communitySlice from './slices/communitySlice';
 import gameSlice from './slices/gameSlice';
@@ -16,5 +18,7 @@ export default configureStore({
     post: postSlice,
     game: gameSlice,
     userGame: userGameSlice,
+    adminPost: adminPostSlice,
+    admin: adminSlice,
   },
 });

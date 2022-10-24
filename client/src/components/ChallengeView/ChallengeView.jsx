@@ -31,7 +31,6 @@ export default function ChallengeView() {
   }, []);
 
   useEffect(() => {
-    // console.log(user.id);
     if (user.id) {
       dispatch(oneUserGameAsync(id));
     }

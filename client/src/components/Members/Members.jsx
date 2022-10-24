@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getMembers } from '../../app/slices/memberSlice';
+// import { getMembers } from '../../app/slices/memberSlice';
 import style from './style.module.css';
 
 export default function Members() {
@@ -8,33 +12,25 @@ export default function Members() {
   const img3 = 'https://i.pinimg.com/564x/83/45/71/834571aabbe4710bab878a7559d7301c.jpg';
   const img4 = 'https://i.pinimg.com/564x/45/e8/af/45e8af342b436da2ec12c0eeada2c49a.jpg';
   const img5 = 'https://i.pinimg.com/564x/3e/11/57/3e11571d0f1bab70cb3d4af01fd5a75f.jpg';
+
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const members = useSelector((state) => state.member);
+
+  useEffect(() => {
+    dispatch(getMembers(id));
+  }, []);
+
   return (
     <div className={`${style.wrapper}`}>
-      <h5>Участники группы</h5>
-      <div className={`${style.member__wrapper}`}>
-        <img className={`${style.member__avatar}`} src={img} alt="avatar" />
-        <span>Регина</span>
-      </div>
-      <div className={`${style.member__wrapper}`}>
-        <img className={`${style.member__avatar}`} src={img1} alt="avatar" />
-        <span>Андрей</span>
-      </div>
-      <div className={`${style.member__wrapper}`}>
-        <img className={`${style.member__avatar}`} src={img2} alt="avatar" />
-        <span>Ксения</span>
-      </div>
-      <div className={`${style.member__wrapper}`}>
-        <img className={`${style.member__avatar}`} src={img3} alt="avatar" />
-        <span>Юлия</span>
-      </div>
-      <div className={`${style.member__wrapper}`}>
-        <img className={`${style.member__avatar}`} src={img4} alt="avatar" />
-        <span>Дарья</span>
-      </div>
-      <div className={`${style.member__wrapper}`}>
-        <img className={`${style.member__avatar}`} src={img5} alt="avatar" />
-        <span>Сайлана</span>
-      </div>
+      <h5>Администратор группы</h5>
+      {members?.map((el) => (
+        <div key={el} className={`${style.member__wrapper}`}>
+          <img className={`${style.member__avatar}`} src={el.image ? el.image : img} alt="avatar" />
+          <span>{el.name}</span>
+          <span>{el.Communities[0].admin_id == el.id ? '(Админ)' : '(Участник)'}</span>
+        </div>
+      ))}
     </div>
   );
 }
