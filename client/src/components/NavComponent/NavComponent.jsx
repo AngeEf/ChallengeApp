@@ -82,7 +82,7 @@ export default function MyNavbar() {
               // menuVariant="dark"
               >
                 <NavDropdown.Item>
-                  <NavLink to="/profile/:id" className={style.navbar_link} aria-current="page">Профиль</NavLink>
+                  <NavLink to={`/profile/${user.id}`} className={style.navbar_link} aria-current="page">Профиль</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <NavLink to="/signup" className={style.navbar_link}>Зарегистрироваться</NavLink>

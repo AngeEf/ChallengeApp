@@ -10,7 +10,6 @@ module.exports = {
       },
       image: {
         type: Sequelize.TEXT,
-        defaultValue: 'https://yt3.ggpht.com/ytc/AMLnZu8KXigrQjYlenzGLeOZWM7bWGlvGL1AQPb8RLgy=s900-c-k-c0x00ffffff-no-rj',
       },
       title: {
         type: Sequelize.STRING,
