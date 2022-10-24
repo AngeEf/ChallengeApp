@@ -25,7 +25,6 @@ export const getMulters = (id) => (dispatch) => {
 export const editFile = (img, id) => {
   const data = new FormData();
   data.append('avatar', img);
-
   axios.post(`http://localhost:3001/api/upload/${id}`, data, {
     headers: {
       'Content-Type': 'multipart/form-data',
