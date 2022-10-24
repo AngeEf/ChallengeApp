@@ -13,33 +13,39 @@ export default function ChallengeView() {
   const challenges = useSelector((state) => state.challenges);
   const game = useSelector((state) => state.game);
   const userGame = useSelector((state) => state.userGame);
-  // const [btnFlag, setBtnFlag] = useState(false);
-  // const [players, setPlayers] = useState(0);
+  const [btnFlag, setBtnFlag] = useState(userGame.length);
+  const [players, setPlayers] = useState(game?.length || 0);
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // отображение челленжа по id
   useEffect(() => {
     dispatch(getOneChallenge(id));
-  }, [game]);
+  }, []);
   // useEffect(() => {
   //   axios(`/api/game/players/${id}`)
   //     .then((res) => setPlayers(res.data));
   // }, []);
+
+  // кол-во участников
   useEffect(() => {
     dispatch(allActiveGameAsync(id));
+    // setPlayers(game?.length);
   }, []);
 
+  // объект есть если юзер участвует в челленже
   useEffect(() => {
     // console.log(user.id);
     if (user.id) {
       dispatch(oneUserGameAsync(id));
+      // setBtnFlag(userGame.length);
     }
   }, [user.id]);
 
   const startGameHandker = (challengeId) => {
     dispatch(createNewGameAsync(challengeId));
-    dispatch(oneUserGameAsync(id));
+    // dispatch(oneUserGameAsync(id));
   };
   console.log(userGame);
   return (
@@ -56,7 +62,7 @@ export default function ChallengeView() {
               <span className="ms-0 me-3">
                 Участвуют сейчас:
                 {' '}
-                {game?.length}
+                {game.length}
               </span>
               <span className="ms-0">
                 {'Сложность: '}
@@ -65,7 +71,7 @@ export default function ChallengeView() {
                 <i className="bi bi-star-fill mx-1" style={{ color: '#F4D2BC' }} />
               </span>
             </div>
-            {user.id && (userGame?.length > 0) ? (
+            {user.id && (userGame.length > 0) ? (
               <Button type="button" disabled>Уже участвуете</Button>
             ) : (user.id) ? (
               <Button type="button" onClick={() => { startGameHandker(challenges.id); navigate(`/challenge/${id}`); }}>Принять участие</Button>
