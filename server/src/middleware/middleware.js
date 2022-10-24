@@ -6,18 +6,18 @@ const storage = multer.diskStorage({
   },
   filename(req, file, cb) {
     // eslint-disable-next-line prefer-template
-    cb(null, `${file.originalname}`);
+    cb(null, Date.now() + '--' + file.originalname);
   },
 });
 
-const types = ['image/png', 'image/jpeg', 'image/jpg'];
+// const types = ['image/png', 'image/jpeg', 'image/jpg'];
 
-const fileFilter = (req, file, cb) => {
-  if (types.includes(file.mimetype)) {
-    cb(null, true);
-  } else {
-    cb(null, false);
-  }
-};
+// const fileFilter = (req, file, cb) => {
+//   if (types.includes(file.mimetype)) {
+//     cb(null, true);
+//   } else {
+//     cb(null, false);
+//   }
+// };
 
-module.exports = multer({ storage, fileFilter });
+module.exports = multer({ storage });

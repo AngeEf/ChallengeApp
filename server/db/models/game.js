@@ -4,7 +4,7 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class Game extends Model {
-    static associate(model) {
+    static associate() {
     }
   }
   Game.init({
