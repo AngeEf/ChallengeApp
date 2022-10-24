@@ -22,8 +22,6 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(Post, { foreignKey: 'user_id' });
       this.hasMany(Comment, { foreignKey: 'user_id' });
       this.hasMany(Community, { foreignKey: 'admin_id' });
-      this.hasMany(Game, { foreignKey: 'user_id' });
-      this.hasMany(Members, { foreignKey: 'user_id' });
     }
   }
   User.init({
