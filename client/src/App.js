@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MainPage from './components/MainPage/MainPage';
@@ -14,9 +14,11 @@ import Profile from './components/Profile/Profile';
 import SectionViewChallenge from './components/SectionView/SectionViewChallenge';
 import SectionViewCommunity from './components/SectionView/SectionViewCommunity';
 import NewCommunity from './components/newCommunity/NewCommunity';
+import ProtectedRoute from './helper/ProtectedRoute/ProtectedRoute';
 
 function App() {
   const user = useSelector((state) => state.user);
+  const [isLoaded, setIsLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,13 +35,19 @@ function App() {
           <Route path="/category/community" element={<SectionViewCommunity />} />
           <Route path="/community/:id" element={<CommunityView />} />
           <Route path="/challenge/:id" element={<ChallengeView />} />
-          <Route path="/progress/:id" element={<Progress />} />
+          {/* <Route path="/progress/:id" element={<Progress />} /> */}
           <Route path="/login/" element={<Login />} />
           <Route path="/signup/" element={<SingUp />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/community/new" element={<NewCommunity />} />
+          {user?.id && (
+            <Route element={<ProtectedRoute isAllowed={!!user.id} redirect="/login" />}>
+              <Route path="/progress/:id" element={<Progress />} />
+            </Route>
+          )}
         </Routes>
       </div>
+      ,
     </div>
   );
 }
