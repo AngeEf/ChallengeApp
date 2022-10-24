@@ -11,6 +11,7 @@ const userGameSlice = createSlice({
       return action.payload;
     },
     oneUserGame(state, action) {
+      console.log(action);
       return action.payload;
     },
   },
@@ -21,6 +22,7 @@ export default userGameSlice.reducer;
 
 export const oneUserGameAsync = (id) => (dispatch) => {
   axios(`/api/game/player/${id}`)
+    // .then((res) => console.log(res.data))
     .then((res) => dispatch(oneUserGame(res.data)))
     .catch(console.log);
 };

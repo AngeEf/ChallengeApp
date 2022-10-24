@@ -39,9 +39,9 @@ export default function SectionCommunities() {
             </>
           ))} */}
 
-          {communities?.map((el) => (
+          {Array.isArray(communities) && communities?.map((el) => (
             <div key={el.id}>
-              <div className={style.card} onClick={() => navigate(`/challenge/${el.id}`)}>
+              <div className={style.card} onClick={() => navigate(`/community/${el.id}`)}>
                 <div className={style.card_box}>
                   <img className={style.card_img} src={el.image ? el.image : 'https://s3.castbox.fm/fe/19/e7/9ed47e47e8ba399fc32052f816.png'} alt="challenge" />
                 </div>
