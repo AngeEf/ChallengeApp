@@ -25,5 +25,7 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'no-unused-vars': 0,
     'jsx-a11y/label-has-associated-control': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
   },
 };

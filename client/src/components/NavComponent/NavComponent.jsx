@@ -23,7 +23,7 @@ export default function MyNavbar() {
           <div className={style.navbar_group}>
             <input type="text" className={`${style.navbar_input}`} />
             <button type="button" className={`${style.navbar_btn}`}>
-              <i className="bi bi-search" />
+              <i className="bi bi-search mx-1" />
             </button>
           </div>
           {/* <div className="input-group input-group-sm nav-input-group">
@@ -82,7 +82,7 @@ export default function MyNavbar() {
               // menuVariant="dark"
               >
                 <NavDropdown.Item>
-                  <NavLink to="/profile/:id" className={style.navbar_link} aria-current="page">Профиль</NavLink>
+                  <NavLink to={`/profile/${user.id}`} className={style.navbar_link} aria-current="page">Профиль</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <NavLink to="/signup" className={style.navbar_link}>Зарегистрироваться</NavLink>

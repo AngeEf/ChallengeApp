@@ -1,8 +1,11 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import style from './style.module.css';
 
 export default function ChallengeView() {
+  const { id } = useParams();
+
   return (
     <div className={style.challenge}>
       <div className={style.details}>
@@ -12,12 +15,12 @@ export default function ChallengeView() {
 
           <div className={style.details_data}>
             <div>
-              <span className="me-3">Участвуют сейчас: 20</span>
-              <span>
+              <span className="ms-0 me-3">Участвуют сейчас: 20</span>
+              <span className="ms-0">
                 {'Сложность: '}
-                <i className="bi bi-star-fill me-1" style={{ color: '#F4D2BC' }} />
-                <i className="bi bi-star-fill me-1" style={{ color: '#F4D2BC' }} />
-                <i className="bi bi-star-fill me-1" style={{ color: '#F4D2BC' }} />
+                <i className="bi bi-star-fill mx-1" style={{ color: '#F4D2BC' }} />
+                <i className="bi bi-star-fill mx-1" style={{ color: '#F4D2BC' }} />
+                <i className="bi bi-star-fill mx-1" style={{ color: '#F4D2BC' }} />
               </span>
             </div>
             <Button type="button">Принять участие</Button>

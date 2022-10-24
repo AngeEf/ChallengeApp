@@ -61,4 +61,10 @@ router.get('/logout', (req, res) => {
   res.clearCookie('sid').sendStatus(200);
 });
 
+router.get('/findname/:id', async (req, res) => {
+  const name = await User.findOne({ where: { id: req.params.id } });
+  console.log(name);
+  res.json(name);
+});
+
 module.exports = router;

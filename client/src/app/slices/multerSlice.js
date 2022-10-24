@@ -8,7 +8,6 @@ const multerSlice = createSlice({
   initialState,
   reducers: {
     setMulter(state, action) {
-      console.log(action.payload);
       return action.payload;
     },
   },
@@ -17,9 +16,13 @@ const multerSlice = createSlice({
 export const { setMulter } = multerSlice.actions;
 export default multerSlice.reducer;
 
-export const getmulters = (id) => () => {
+export const getMulters = (id) => (dispatch) => {
   axios.get(`/api/upload/${id}`)
-    .then((res) => console.log(res))
-    // dispatch(setMulter(res.data)))
+    .then((res) => dispatch(setMulter(res.data)))
     .catch(console.log);
 };
+
+// useEffect(() => {
+//   axios.get(`/api/community/communities/${id}`)
+//     .then((res) => setCommunity(res.data));
+// }, []);

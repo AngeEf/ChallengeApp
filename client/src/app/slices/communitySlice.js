@@ -13,10 +13,13 @@ const communitySlice = createSlice({
     setOneCommunity(state, action) {
       return action.payload;
     },
+    setCommunityByCategoryLimit(state, action) {
+      return action.payload;
+    },
   },
 });
 
-export const { setCommunities, setOneCommunity } = communitySlice.actions;
+export const { setCommunities, setOneCommunity, setCommunityByCategoryLimit } = communitySlice.actions;
 export default communitySlice.reducer;
 
 export const getCommunities = () => (dispatch) => {
@@ -29,4 +32,9 @@ export const getOneCommunity = (id) => (dispatch) => {
   axios.get(`/api/community/communities/${id}`)
     .then((res) => dispatch(setOneCommunity(res.data)))
     .catch(console.log);
+};
+
+export const getCommunityByCategoryLimit = (category) => (dispatch) => {
+  axios(`/api/category/community/${category}`)
+    .then((res) => dispatch(setCommunityByCategoryLimit(res.data)));
 };

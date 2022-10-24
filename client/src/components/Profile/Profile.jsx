@@ -2,40 +2,43 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import style from './style.module.css';
-import multerSlice from '../../app/slices/multerSlice';
+import { getMulters } from '../../app/slices/multerSlice';
 
 export default function Profile() {
   const [img, setImg] = useState();
-  // const [avatar, setAvatar] = useState();
-  // const user = useSelector((state) => state.user);
+  const { id } = useParams();
   const multer = useSelector((state) => state.multer);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  console.log(multer);
+
+  useEffect(() => {
+    axios(`/api/findname/${id}`);
+  });
 
   // useEffect(() => {
-  //   dispatch(multerSlice);
+  //   fetch('/api/takephoto/:id');
   // });
 
   const imgChangeHandler = ((e) => {
-    setImg(e.target.file);
+    console.log(e.target.files[0], 'e.target');
+    setImg(e.target.files[0]);
   });
 
   const editFile = (e) => {
     e.preventDefault();
     const data = new FormData();
     data.append('avatar', img);
-    console.log(data, 'data');
-    fetch('http://localhost:3001/api/upload', {
-      method: 'POST',
-      body: data,
-    })
-      .then((res) => res.json())
-      .then((result) => console.log(result, 'its Work?!'))
-    // console.log('its Work')
+    console.log(img, 'dataimage');
 
-      .catch((err) => {
-        console.log(err.message);
-      });
+    axios.post('http://localhost:3001/api/upload', data, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      withCredentials: true,
+    })
+      .then((res) => dispatch(res));
   };
 
   const logo = 'https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg';
@@ -56,7 +59,7 @@ export default function Profile() {
         <div className={style.avatar_img}>
           {
     img
-      ? <img className={style.avatar} src={`${img}`} alt="avatar" />
+      ? <img className={style.avatar} src={`http://localhost3000/api/takephoto/${img}`} alt="avatar" />
       : <img className={style.avatar} src={`${logo}`} alt="logo" />
   }
         </div>
