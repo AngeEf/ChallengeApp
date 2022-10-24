@@ -3,7 +3,7 @@ import { Button, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import style from './style.module.css';
-import { getChallenges, getOneCommunity } from '../../app/slices/challengeSlice';
+import { getChallenges } from '../../app/slices/challengeSlice';
 
 export default function CardItemChallenge() {
   const challenges = useSelector((state) => state.challenges);
@@ -20,7 +20,7 @@ export default function CardItemChallenge() {
   return (
     <>
       {challenges?.map((el) => (
-        <Card className={style.card}>
+        <Card className={style.card} key={el.id}>
           <div className={style.cart_img}>
             <Card.Img className={style.cart_photo} variant="top" src={el.image} />
           </div>

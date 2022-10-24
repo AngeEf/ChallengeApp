@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-import { Button, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getCommunities, getCommunityByCategoryLimit } from '../../app/slices/communitySlice';
-import Category from '../Category/Category';
+import { getCommunityByCategoryLimit } from '../../app/slices/communitySlice';
 import style from './style.module.css';
 
 export default function SectionCommunities() {
@@ -41,8 +39,8 @@ export default function SectionCommunities() {
             </>
           ))} */}
 
-          {communities.map((el) => (
-            <>
+          {communities?.map((el) => (
+            <div key={el.id}>
               <div className={style.card} onClick={() => navigate(`/challenge/${el.id}`)}>
                 <div className={style.card_box}>
                   <img className={style.card_img} src={el.image ? el.image : 'https://s3.castbox.fm/fe/19/e7/9ed47e47e8ba399fc32052f816.png'} alt="challenge" />
@@ -52,7 +50,7 @@ export default function SectionCommunities() {
                   <h5 className={style.card_subtitle}>{el.subtitle}</h5>
                 </div>
               </div>
-            </>
+            </div>
           ))}
 
           {/* card 1 */}
