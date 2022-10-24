@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Community extends Model {
     static associate({ User }) {
       this.belongsToMany(User, { through: 'Members', foreignKey: 'user_id' });
-      this.belongsTo(User, { foreignKey: 'admit_id' });
+      this.belongsTo(User, { foreignKey: 'admin_id' });
     }
   }
   Community.init({

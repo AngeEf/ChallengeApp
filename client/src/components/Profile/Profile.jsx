@@ -1,72 +1,73 @@
 /* eslint-disable react/button-has-type */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import style from './style.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import style from './style.module.css';
+import multerSlice from '../../app/slices/multerSlice';
 
 export default function Profile() {
-  const [img, setImg] = useState(null);
-  const [avatar, setAvatar] = useState(null);
+  const [img, setImg] = useState();
+  // const [avatar, setAvatar] = useState();
+  // const user = useSelector((state) => state.user);
+  const multer = useSelector((state) => state.multer);
+  // const dispatch = useDispatch();
 
-  const sendFile = (e) => {
+  // useEffect(() => {
+  //   dispatch(multerSlice);
+  // });
+
+  const imgChangeHandler = ((e) => {
+    setImg(e.target.file);
+  });
+
+  const editFile = (e) => {
+    e.preventDefault();
     const data = new FormData();
     data.append('avatar', img);
-    console.log(data);
-    axios.post('http://localhost:3001/api/upload', data, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      withCredentials: true,
+    console.log(data, 'data');
+    fetch('http://localhost:3001/api/upload', {
+      method: 'POST',
+      body: data,
     })
+      .then((res) => res.json())
+      .then((result) => console.log(result, 'its Work?!'))
+    // console.log('its Work')
 
-      .then((res) => { setAvatar(res.data.path); });
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
   const logo = 'https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg';
-  console.log(img);
-  console.log(avatar);
+  console.log(img, 'imglog');
   return (
-    <div>
-      <div>
-        {
-          avatar
-            ? <img className="img" src={`${avatar}`} alt="avatar" />
-            : <img className="img" src={`${logo}`} alt="img" />
-        }
+    <form onSubmit={editFile}>
+      <div className={style.wrapper}>
+        <div className={style.profile__name__wrapper}>
+          <label htmlFor="exampleInputName" className={style.profile__name__label}>
+            Имя
+            <input
+              name="name"
+              className={style.profile__name__input}
+              id="exampleInputName"
+            />
+          </label>
+        </div>
+        <div className={style.avatar_img}>
+          {
+    img
+      ? <img className={style.avatar} src={`${img}`} alt="avatar" />
+      : <img className={style.avatar} src={`${logo}`} alt="logo" />
+  }
+        </div>
+        <input type="file" onChange={imgChangeHandler} />
+        <button
+          type="submit"
+          className={`${style.profile__btn__refresh}`}
+        >
+          Обновить данные
+        </button>
       </div>
-      <input type="file" onChange={(e) => setImg(e.target.files[0])} />
-      <button type="button" className="btn" onClick={sendFile}>Изменить</button>
-    </div>
+    </form>
   );
 }
-
-// <div className={style.wrapper}>
-//   <div className={style.profile__name__wrapper}>
-//     <label htmlFor="exampleInputName" className={style.profile__name__label}>
-//       Имя
-//       <input
-//         name="name"
-//         className={style.profile__name__input}
-//         id="exampleInputName"
-//       />
-//     </label>
-//   </div>
-//   <div className={style.avatar_img}>
-//     {
-//     avatar
-//       ? <img className={style.avatar} src={`${avatar}`} alt="avatar" />
-//       : <img className={style.avatar} src={`${img}`} alt="logo" />
-//   }
-//   </div>
-//   <div className="mb-3">
-//     <img className={style.avatar} src={img} alt="Avatar" />
-//     <button type="submit" className={style.profile__btn}>Выбрать фото</button>
-//   </div>
-//   <input type="file" onChange={(e) => setImage(e.target.files[0])} />
-//   <button
-//     type="btn"
-//     className={`${style.profile__btn__refresh}`}
-//     onClick={sendFile}
-//   >
-//     Обновить данные
-//   </button>
-// </div>
