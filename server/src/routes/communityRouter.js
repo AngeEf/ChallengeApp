@@ -5,16 +5,21 @@ const router = express.Router();
 
 // GET ALL COMMUNITIES
 router.get('/communities', async (req, res) => {
-  const communities = await Community.findAll();
+  const communities = await Community.findAll({
+    order: [
+      ['createdAt', 'DESC'],
+    ],
+  });
   return res.json(communities);
 });
 
 // CREATE COMMUNITY
 router.post('/communities', async (req, res) => {
-  const { input } = req.body;
-  const { admin } = req.session.user.id;
+  const {
+    title, subtitle, description, category,
+  } = req.body.input;
   const newCommunity = await Community.create({
-    input, admin,
+    title, subtitle, description, category, admin_id: req.session.user.id,
   });
   res.json(newCommunity);
 });
@@ -26,6 +31,15 @@ router.get('/communities/:id', async (req, res) => {
     where: { id },
   });
   return res.json(community);
+});
+
+// COUNT COMMUNITY MEMBERS
+router.get('/communities/:id/count', async (req, res) => {
+  const { id } = req.params;
+  const countMembers = await Member.count({
+    where: { community_id: id },
+  });
+  return res.json(countMembers);
 });
 
 // GET COMMUNITIES BY CATEGORY
@@ -49,16 +63,16 @@ router.get('/communities/:id/members', async (req, res) => {
 
 // JOIN COMMUNITY
 router.post('/communities/:id/join', async (req, res) => {
-  const { community_id } = req.params;
-  const { user_id } = req.session.user.id;
+  const { id } = req.params;
   const newMember = await Member.create({
-    community_id, user_id,
+    community_id: id, user_id: req.session.user.id,
   });
+  // console.log('222222222', newMember);
   res.json(newMember);
 });
 
 // LEAVE COMMUNITY
-router.delete('/communities/:id/join', async (req, res) => {
+router.delete('/communities/:id/', async (req, res) => {
   const { community_id } = req.params;
   const { user_id } = req.session.user.id;
   const newMember = await Member.destroy({

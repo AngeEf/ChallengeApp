@@ -25,7 +25,7 @@ export default function SectionViewCommunity() {
           <Link to="/api/#" className="me-3">Все сообщества</Link>
           <Link to="/api/#">Управление</Link>
         </div>
-        <Button type="button">Создать сообщество</Button>
+        <Button onClick={() => navigate('/community/new')} type="button">Создать сообщество</Button>
       </div>
       <div className={style.section}>
         {communities?.map((el) => <CardItem key={el.id} community={el} navigateHandler={navigateHandler} />)}
