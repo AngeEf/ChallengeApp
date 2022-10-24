@@ -65,7 +65,8 @@ router.get('/findname/:id', async (req, res) => {
   const name = await User.findOne({ where: { id: req.params.id } });
   console.log(name);
   res.json(name);
-  
+});
+
 router.get('/check/:community/member', async (req, res) => {
   if (req.session.user) {
     try {
