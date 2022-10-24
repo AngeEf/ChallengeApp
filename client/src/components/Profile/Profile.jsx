@@ -1,72 +1,68 @@
 /* eslint-disable react/button-has-type */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import style from './style.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import style from './style.module.css';
+import { editFile, getMulters } from '../../app/slices/multerSlice';
 
 export default function Profile() {
-  const [img, setImg] = useState(null);
-  const [avatar, setAvatar] = useState(null);
+  const [img, setImg] = useState();
 
-  const sendFile = (e) => {
-    const data = new FormData();
-    data.append('avatar', img);
-    console.log(data);
-    axios.post('http://localhost:3001/api/upload', data, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      withCredentials: true,
-    })
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  console.log(user);
 
-      .then((res) => { setAvatar(res.data.path); });
-  };
+  useEffect(() => {
+    axios('/api/takepath')
+      .then((data) => setImg(data.data.image));
+  }, []);
 
-  const logo = 'https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg';
-  console.log(img);
-  console.log(avatar);
+  const imgChangeHandler = ((e) => {
+    console.log(e.target.files[0], 'e.target');
+    setImg(e.target.files[0]);
+  });
+
+  // const editFile = (e) => {
+  //   e.preventDefault();
+  //   const data = new FormData();
+  //   data.append('avatar', img);
+
+  //   axios.post(`http://localhost:3001/api/upload/${user.id}`, data, {
+  //     headers: {
+  //       'Content-Type': 'multipart/form-data',
+  //     },
+  //     withCredentials: true,
+  //   })
+  //     .then((res) => dispatch(getMulters(user.id)));
+  // };
+
+  console.log(img, 'imglog');
   return (
-    <div>
-      <div>
-        {
-          avatar
-            ? <img className="img" src={`${avatar}`} alt="avatar" />
-            : <img className="img" src={`${logo}`} alt="img" />
-        }
+    <form onSubmit={() => dispatch(editFile(img, user.id)).navigate(`/profile/${user.id}`)}>
+      <div className={style.wrapper}>
+        <div className={style.profile__name__wrapper}>
+          <label htmlFor="exampleInputName" className={style.profile__name__label}>
+            Имя
+            <input
+              name="name"
+              className={style.profile__name__input}
+              id="exampleInputName"
+            />
+          </label>
+        </div>
+        <div className={style.avatar_img}>
+          <img className={style.avatar} src={`http://localhost:3001/${img}`} alt="avatar" />
+        </div>
+        <input type="file" onChange={imgChangeHandler} />
+        <button
+          type="submit"
+          className={`${style.profile__btn__refresh}`}
+        >
+          Обновить данные
+        </button>
       </div>
-      <input type="file" onChange={(e) => setImg(e.target.files[0])} />
-      <button type="button" className="btn" onClick={sendFile}>Изменить</button>
-    </div>
+    </form>
   );
 }
-
-// <div className={style.wrapper}>
-//   <div className={style.profile__name__wrapper}>
-//     <label htmlFor="exampleInputName" className={style.profile__name__label}>
-//       Имя
-//       <input
-//         name="name"
-//         className={style.profile__name__input}
-//         id="exampleInputName"
-//       />
-//     </label>
-//   </div>
-//   <div className={style.avatar_img}>
-//     {
-//     avatar
-//       ? <img className={style.avatar} src={`${avatar}`} alt="avatar" />
-//       : <img className={style.avatar} src={`${img}`} alt="logo" />
-//   }
-//   </div>
-//   <div className="mb-3">
-//     <img className={style.avatar} src={img} alt="Avatar" />
-//     <button type="submit" className={style.profile__btn}>Выбрать фото</button>
-//   </div>
-//   <input type="file" onChange={(e) => setImage(e.target.files[0])} />
-//   <button
-//     type="btn"
-//     className={`${style.profile__btn__refresh}`}
-//     onClick={sendFile}
-//   >
-//     Обновить данные
-//   </button>
-// </div>

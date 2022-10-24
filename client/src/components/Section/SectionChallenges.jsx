@@ -9,9 +9,14 @@ export default function SectionChallenges() {
   const { category } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   useEffect(() => {
+    // console.log(challenges);
     dispatch(getChallengesByCategoryLimit(category));
-  }, []);
+    // console.log('versia2', challenges);
+  }, [category]);
+
+  // console.log('versia3', challenges);
   return (
     <div className={style.section}>
       <h2 className={style.section_title}>Испытания</h2>
@@ -19,7 +24,7 @@ export default function SectionChallenges() {
 
         <div className={style.cards}>
           {/* card 1 */}
-          {challenges?.map((el) => (
+          {Array.isArray(challenges) && challenges?.map((el) => (
             <div className={style.card} onClick={() => navigate(`/challenge/${el.id}`)} key={el.id}>
               <div className={style.card_box}>
                 <img className={style.card_img} src={el.image} alt="challenge" />

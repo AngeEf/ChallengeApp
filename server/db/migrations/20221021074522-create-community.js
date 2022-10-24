@@ -10,6 +10,7 @@ module.exports = {
       },
       image: {
         type: Sequelize.TEXT,
+        defaultValue: '/images/1666620388940--9e37ef74d5f7038b82596d41d3741c8c.png',
       },
       title: {
         type: Sequelize.STRING,

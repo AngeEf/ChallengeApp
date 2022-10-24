@@ -1,23 +1,26 @@
 /* eslint-disable no-empty */
 const { Router } = require('express');
+const path = require('path');
 const fileMiddleware = require('../middleware/middleware');
 const { User } = require('../../db/models');
 
 const router = Router();
 
-router.post('/upload', fileMiddleware.single('avatar'), async (req, res) => {
+router.post('/upload/:id', fileMiddleware.single('avatar'), async (req, res) => {
   try {
-    // console.log(req.file);
-    console.log(req.body);
-    if (req.file) {
-      const back = await User.findOne({ where: { id: req.session.user.id } });
-      back.avatar = req.file.path;
-      back.save();
-      res.json(back);
-    }
+    console.log('req.file.path------', req.file.path, 'finish-----');
+    const edit = await User.update({
+      image: req.file.path,
+    }, { where: { id: req.session.user.id } });
+    res.json(edit);
   } catch (error) {
-    console.log(error);
+    console.log(error, '---');
   }
+});
+router.get('/takepath', async (req, res) => {
+  const user = await User.findOne({ attributes: ['image'], where: { id: req.session.user.id } });
+  console.log(user, 'ussssss');
+  res.json(user);
 });
 
 module.exports = router;

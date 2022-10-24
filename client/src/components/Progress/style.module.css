@@ -3,3 +3,13 @@
   /* height: 100vh; */
   display: flex;
 }
+
+.progress_data {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  /* background-color: aliceblue; */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px 30px;
+  margin: 20px 30px 40px;
+}

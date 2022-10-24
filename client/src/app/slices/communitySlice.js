@@ -58,7 +58,6 @@ export const setNewCommunity = (input) => (dispatch) => {
     .then((res) => dispatch(newCommunity(res.data)))
     .catch(console.log);
 };
-
 export const getCommunityByCategoryLimit = (category) => (dispatch) => {
   axios(`/api/category/community/${category}`)
     .then((res) => dispatch(setCommunityByCategoryLimit(res.data)));

@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/check', (req, res) => {
-  if (req.session.user) {
+  if (req.session.user.id) {
     return res.json(req.session.user);
   }
   return res.sendStatus(401);
@@ -59,6 +59,12 @@ router.post('/check', (req, res) => {
 router.get('/logout', (req, res) => {
   req.session.destroy();
   res.clearCookie('sid').sendStatus(200);
+});
+
+router.get('/findname/:id', async (req, res) => {
+  const name = await User.findOne({ where: { id: req.params.id } });
+  console.log(name);
+  res.json(name);
 });
 
 router.get('/check/:community/member', async (req, res) => {
