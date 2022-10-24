@@ -20,14 +20,14 @@ router.get('/all', async (req, res) => {
 // });
 
 // GET ONE CHALLENGE
-// router.get('/:id', async (req, res) => {
-//   const { id } = req.params;
-//   console.log('111111111111', id);
-//   const challenge = await Challenge.findOne({
-//     where: { id },
-//   });
-//   return res.json(challenge);
-// });
+router.get('/challenge/:id', async (req, res) => {
+  const { id } = req.params;
+  console.log('111111111111', id);
+  const challenge = await Challenge.findOne({
+    where: { id },
+  });
+  res.json(challenge);
+});
 
 // GET CHALLENGE BY CATEGORY LIMIT 6
 // router.get('/:category', async (req, res) => {
@@ -40,6 +40,5 @@ router.get('/all', async (req, res) => {
 //   res.json(challengesByCategory);
 // });
 
-// INIT GAME
 module.exports = router;
 // { limit: 3 }
