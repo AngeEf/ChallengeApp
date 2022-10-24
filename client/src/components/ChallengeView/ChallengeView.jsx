@@ -1,21 +1,69 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getOneChallenge } from '../../app/slices/challengeSlice';
+import { allActiveGameAsync, createNewGameAsync } from '../../app/slices/gameSlice';
+import { oneUserGameAsync } from '../../app/slices/userGameSlice';
 import style from './style.module.css';
 
 export default function ChallengeView() {
+  const user = useSelector((state) => state.user);
+  const challenges = useSelector((state) => state.challenges);
+  const game = useSelector((state) => state.game);
+  const userGame = useSelector((state) => state.userGame);
+  const [btnFlag, setBtnFlag] = useState(userGame.length);
+  const [players, setPlayers] = useState(game?.length || 0);
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  // отображение челленжа по id
+  useEffect(() => {
+    dispatch(getOneChallenge(id));
+  }, []);
+  // useEffect(() => {
+  //   axios(`/api/game/players/${id}`)
+  //     .then((res) => setPlayers(res.data));
+  // }, []);
+
+  // кол-во участников
+  useEffect(() => {
+    dispatch(allActiveGameAsync(id));
+    // setPlayers(game?.length);
+  }, []);
+
+  // объект есть если юзер участвует в челленже
+  useEffect(() => {
+    // console.log(user.id);
+    if (user.id) {
+      dispatch(oneUserGameAsync(id));
+      // setBtnFlag(userGame.length);
+    }
+  }, [user.id]);
+
+  const startGameHandker = (challengeId) => {
+    dispatch(createNewGameAsync(challengeId));
+    // dispatch(oneUserGameAsync(id));
+  };
+  console.log(userGame);
   return (
     <div className={style.challenge}>
       <div className={style.details}>
         <div className={style.details_content}>
-          <h2 className={style.details_title}>Name Challenge</h2>
-          <h4 className={style.details_subtitle}>Subtitle Challenge</h4>
+          <div className="ms-4">
+            <h2 className={style.details_title}>{challenges.title}</h2>
+            <h4 className={style.details_subtitle}>{challenges.subtitle}</h4>
+          </div>
 
           <div className={style.details_data}>
             <div>
-              <span className="ms-0 me-3">Участвуют сейчас: 20</span>
+              <span className="ms-0 me-3">
+                Участвуют сейчас:
+                {' '}
+                {game.length}
+              </span>
               <span className="ms-0">
                 {'Сложность: '}
                 <i className="bi bi-star-fill mx-1" style={{ color: '#F4D2BC' }} />
@@ -23,17 +71,20 @@ export default function ChallengeView() {
                 <i className="bi bi-star-fill mx-1" style={{ color: '#F4D2BC' }} />
               </span>
             </div>
-            <Button type="button">Принять участие</Button>
+            {user.id && (userGame.length > 0) ? (
+              <Button type="button" disabled>Уже участвуете</Button>
+            ) : (user.id) ? (
+              <Button type="button" onClick={() => { startGameHandker(challenges.id); navigate(`/challenge/${id}`); }}>Принять участие</Button>
+            ) : (
+              <Button type="button" onClick={() => navigate('/login')}>Принять участие</Button>
+            )}
           </div>
-
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus debitis quas consequuntur? Quam aperiam laborum tempore aspernatur, sit, maxime, dicta eveniet atque quaerat culpa voluptatem necessitatibus facere officia voluptas.</p>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim nostrum laudantium esse, sapiente qui ea! Eligendi illum minima ullam quisquam maxime voluptatibus iusto, reiciendis fugit blanditiis, voluptate velit hic labore?</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus debitis quas consequuntur? Quam aperiam laborum tempore aspernatur, sit, maxime, dicta eveniet atque quaerat culpa voluptatem necessitatibus facere officia voluptas.</p>
+          <p>{challenges.description}</p>
         </div>
       </div>
       <div className={style.image}>
         <div className={style.image_box}>
-          <img className={style.image_photo} src="https://i1.wp.com/s-media-cache-ak0.pinimg.com/564x/92/d8/8c/92d88c81ad3090922a518469cf4585cb.jpg?resize=350%2C600&ssl=1" alt="challenge1" />
+          <img className={style.image_photo} src={challenges.image} alt="challenge1" />
         </div>
       </div>
     </div>

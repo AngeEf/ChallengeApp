@@ -14,12 +14,16 @@ module.exports = (sequelize, DataTypes) => {
       Challenge,
       Post,
       Comment,
+      Game,
+      Members,
     }) {
       this.belongsToMany(Community, { through: 'Members', foreignKey: 'community_id' });
       this.belongsToMany(Challenge, { through: 'Game', foreignKey: 'challenge_id' });
       this.hasMany(Post, { foreignKey: 'user_id' });
       this.hasMany(Comment, { foreignKey: 'user_id' });
       this.hasMany(Community, { foreignKey: 'admin_id' });
+      this.hasMany(Game, { foreignKey: 'user_id' });
+      this.hasMany(Members, { foreignKey: 'user_id' });
     }
   }
   User.init({

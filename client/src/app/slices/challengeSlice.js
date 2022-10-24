@@ -23,7 +23,7 @@ export const { setChallenges, setOneChallenge, setChallengeByCategoryLimit } = c
 export default challengeSlice.reducer;
 
 export const getChallenges = () => (dispatch) => {
-  axios.get('/api/challenge/all')
+  axios.get('/api/challenges/all')
     .then((res) => dispatch(setChallenges(res.data)))
     .catch(console.log);
 };
@@ -33,8 +33,8 @@ export const getChallengesByCategoryLimit = (category) => (dispatch) => {
     .then((res) => dispatch(setChallengeByCategoryLimit(res.data)));
 };
 
-export const getOneCommunity = (id) => (dispatch) => {
-  axios.get(`/api/challenge/${id}`)
+export const getOneChallenge = (id) => (dispatch) => {
+  axios.get(`/api/challenges/challenge/${id}`)
     .then((res) => dispatch(setOneChallenge(res.data)))
     .catch(console.log);
 };

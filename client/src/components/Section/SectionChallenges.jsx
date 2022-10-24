@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import style from './style.module.css';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getChallengesByCategoryLimit } from '../../app/slices/challengeSlice';
+import style from './style.module.css';
 
 export default function SectionChallenges() {
   const challenges = useSelector((state) => state.challenges);
   const { category } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   useEffect(() => {
+    console.log(challenges);
     dispatch(getChallengesByCategoryLimit(category));
-  }, []);
+    console.log('versia2', challenges);
+  }, [category]);
+
+  console.log('versia3', challenges);
   return (
     <div className={style.section}>
       <h2 className={style.section_title}>Испытания</h2>
@@ -21,8 +24,8 @@ export default function SectionChallenges() {
 
         <div className={style.cards}>
           {/* card 1 */}
-          {challenges?.map((el) => (
-            <div className={style.card} onClick={() => navigate(`/challenge/${el.id}`)}>
+          {Array.isArray(challenges) && challenges?.map((el) => (
+            <div className={style.card} onClick={() => navigate(`/challenge/${el.id}`)} key={el.id}>
               <div className={style.card_box}>
                 <img className={style.card_img} src={el.image} alt="challenge" />
               </div>

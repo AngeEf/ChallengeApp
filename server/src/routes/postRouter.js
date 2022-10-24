@@ -6,19 +6,18 @@ const {
 const router = express.Router();
 
 // GET ALL POSTS FOR COMMUNITY
-router.get('/posts', async (req, res) => {
-  const { community_id } = req.params;
+router.get('/:community/posts', async (req, res) => {
   const posts = await Post.findAll({
-    where: { community_id },
+    where: { community_id: req.params.community },
+    include: [{ model: User }],
   });
+  res.json(posts);
 });
 
 // CREATE NEW POST
-router.post('/posts/new', async (req, res) => {
-  const { input } = req.body;
-  const { author } = req.session.user.id;
+router.post('/:community/posts/new', async (req, res) => {
   const newPost = await Post.create({
-    input, author,
+    community_id: req.body.id, user_id: req.session.user.id, task: false, content: req.body.input,
   });
   res.json(newPost);
 });
