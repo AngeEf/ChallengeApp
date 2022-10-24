@@ -47,7 +47,7 @@ export default function UserGames() {
               return (
                 <button
                   style={{
-                    backgroundColor: (parseProgress[el] === true) ? 'red' : 'blue',
+                    backgroundColor: (parseProgress[el] === true) ? '#f4d2bc' : 'white',
                   }}
                   // {(JSON.parse(elem.progress).el === true )? (
                   //   style={{ backgroundColor: 'blue' }}
@@ -66,7 +66,7 @@ export default function UserGames() {
             })}
           </div>
           <div className={style.game_box}>
-            <span className={style.game_data}>{elem.id}</span>
+            <span className={style.game_data}>{(elem.status === true) ? ('In Progress') : ('Completed')}</span>
             <span className={style.game_data}>{`Deadline: ${getDeadline(elem.createdAt)}`}</span>
           </div>
         </div>

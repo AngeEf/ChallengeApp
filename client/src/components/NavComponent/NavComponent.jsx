@@ -69,27 +69,3 @@ export default function MyNavbar() {
     </nav>
   );
 }
-
-// { /* <Dropdown>
-// <Dropdown.Toggle id="dropdown-basic">
-//   <i className="bi bi-person-fill" />
-// </Dropdown.Toggle>
-// <Dropdown.Menu>
-//   <Dropdown.Item>
-
-//     <NavLink to="/signup" className={style.navbar_link}>Зарегистрироваться</NavLink>
-//   </Dropdown.Item>
-//   <Dropdown.Item>
-
-//     <NavLink to="/:id/profile" className={style.navbar_link} aria-current="page">Профиль</NavLink>
-//   </Dropdown.Item>
-//   <Dropdown.Item>
-
-//     <NavLink to="/login" className={style.navbar_link}>Войти</NavLink>
-//   </Dropdown.Item>
-//   <Dropdown.Item>
-
-//     <NavLink to="#" onClick={() => { dispatch(logoutUser()); }} className={style.navbar_link}>Выйти</NavLink>
-//   </Dropdown.Item>
-// </Dropdown.Menu>
-// </Dropdown> */ }

@@ -1,5 +1,4 @@
-import axios from 'axios';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -13,8 +12,6 @@ export default function ChallengeView() {
   const challenges = useSelector((state) => state.challenges);
   const game = useSelector((state) => state.game);
   const userGame = useSelector((state) => state.userGame);
-  const [btnFlag, setBtnFlag] = useState(userGame.length);
-  const [players, setPlayers] = useState(game?.length || 0);
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -23,31 +20,23 @@ export default function ChallengeView() {
   useEffect(() => {
     dispatch(getOneChallenge(id));
   }, []);
-  // useEffect(() => {
-  //   axios(`/api/game/players/${id}`)
-  //     .then((res) => setPlayers(res.data));
-  // }, []);
 
   // кол-во участников
   useEffect(() => {
     dispatch(allActiveGameAsync(id));
-    // setPlayers(game?.length);
   }, []);
 
   // объект есть если юзер участвует в челленже
   useEffect(() => {
-    // console.log(user.id);
     if (user.id) {
       dispatch(oneUserGameAsync(id));
-      // setBtnFlag(userGame.length);
     }
   }, [user.id]);
 
   const startGameHandker = (challengeId) => {
     dispatch(createNewGameAsync(challengeId));
-    // dispatch(oneUserGameAsync(id));
   };
-  console.log(userGame);
+
   return (
     <div className={style.challenge}>
       <div className={style.details}>

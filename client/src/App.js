@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MainPage from './components/MainPage/MainPage';
@@ -18,6 +18,7 @@ import ProtectedRoute from './helper/ProtectedRoute/ProtectedRoute';
 
 function App() {
   const user = useSelector((state) => state.user);
+  const [isLoaded, setIsLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,11 +40,14 @@ function App() {
           <Route path="/signup/" element={<SingUp />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/community/new" element={<NewCommunity />} />
-          <Route element={<ProtectedRoute isAllowed={!!user.id} redirect="/login" />}>
-            <Route path="/progress/:id" element={<Progress />} />
-          </Route>
+          {user?.id && (
+            <Route element={<ProtectedRoute isAllowed={!!user.id} redirect="/login" />}>
+              <Route path="/progress/:id" element={<Progress />} />
+            </Route>
+          )}
         </Routes>
       </div>
+      ,
     </div>
   );
 }

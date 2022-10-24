@@ -11,12 +11,12 @@ export default function SectionChallenges() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(challenges);
+    // console.log(challenges);
     dispatch(getChallengesByCategoryLimit(category));
-    console.log('versia2', challenges);
+    // console.log('versia2', challenges);
   }, [category]);
 
-  console.log('versia3', challenges);
+  // console.log('versia3', challenges);
   return (
     <div className={style.section}>
       <h2 className={style.section_title}>Испытания</h2>
