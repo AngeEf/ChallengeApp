@@ -2,7 +2,7 @@ import React from 'react';
 import { Nav, NavDropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { logoutUser } from '../../app/slices/userSlice';
+import { logoutUserAsync } from '../../app/slices/userSlice';
 import style from './style.module.css';
 
 export default function MyNavbar() {
@@ -23,7 +23,7 @@ export default function MyNavbar() {
           <div className={style.navbar_group}>
             <input type="text" className={`${style.navbar_input}`} />
             <button type="button" className={`${style.navbar_btn}`}>
-              <i className="bi bi-search" />
+              <i className="bi bi-search mx-1" />
             </button>
           </div>
           {/* <div className="input-group input-group-sm nav-input-group">
@@ -72,7 +72,7 @@ export default function MyNavbar() {
         <li className={`${style.navbar_listItem} ${style.navbar_listItem__set}`}>
           <div className="d-flex navbar_set">
             <NavLink to="/" className={`${style.navbar_link}`} aria-current="page"><i className="bi bi-house-door-fill" /></NavLink>
-            <NavLink to="/progress/1" className={style.navbar_link} aria-current="page"><i className="bi bi-trophy-fill" /></NavLink>
+            <NavLink to={`/progress/${user.id}`} className={style.navbar_link} aria-current="page"><i className="bi bi-trophy-fill" /></NavLink>
 
             <Nav>
               <NavDropdown
@@ -92,7 +92,7 @@ export default function MyNavbar() {
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item>
-                  <NavLink to="#" onClick={() => { dispatch(logoutUser()); }} className={style.navbar_link}>Выйти</NavLink>
+                  <NavLink to="#" onClick={() => { dispatch(logoutUserAsync()); }} className={style.navbar_link}>Выйти</NavLink>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

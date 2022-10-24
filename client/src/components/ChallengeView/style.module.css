@@ -12,11 +12,12 @@
 
 }
 .details_title {
-  font-size: 30px;
+  font-size: 24px;
+  font-weight: 300;
   margin: 20px 0;
 }
 .details_subtitle {
-  font-size: 22px;
+  font-size: 16px;
   margin-bottom: 20px;
 }
 .details_data {
