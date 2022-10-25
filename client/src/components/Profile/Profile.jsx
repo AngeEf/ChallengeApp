@@ -40,7 +40,7 @@ export default function Profile() {
 
   // console.log(img, 'imglog');
   return (
-    <form onSubmit={() => dispatch(editFile(img, user.id)).navigate(`/profile/${user.id}`)}>
+    <form onSubmit={() => dispatch(editFile(img, user.id).navigate('/'))}>
       <div className={style.wrapper}>
         <div className={style.profile__name__wrapper}>
           <label htmlFor="exampleInputName" className={style.profile__name__label}>
