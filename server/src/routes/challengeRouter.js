@@ -22,7 +22,7 @@ router.get('/all', async (req, res) => {
 // GET ONE CHALLENGE
 router.get('/challenge/:id', async (req, res) => {
   const { id } = req.params;
-  console.log('111111111111', id);
+  // console.log('111111111111', id);
   const challenge = await Challenge.findOne({
     where: { id },
   });

@@ -7,7 +7,7 @@ const memberSlice = createSlice({
   name: 'member',
   initialState,
   reducers: {
-    setMembers(state, action) {
+    setCurrAdmin(state, action) {
       return action.payload;
     },
 
@@ -17,12 +17,12 @@ const memberSlice = createSlice({
   },
 });
 
-export const { setMembers, setNewMember } = memberSlice.actions;
+export const { setCurrAdmin, setNewMember, setCheckMember } = memberSlice.actions;
 export default memberSlice.reducer;
 
-export const getMembers = (id) => (dispatch) => {
-  axios.get(`/api/community/communities/${id}/members`)
-    .then((res) => dispatch(setMembers(res.data)))
+export const getCurrAdmin = (id) => (dispatch) => {
+  axios.get(`/api/community/communities/${id}/currAdmin`)
+    .then((res) => dispatch(setCurrAdmin(res.data)))
     .catch(console.log);
 };
 
