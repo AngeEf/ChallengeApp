@@ -12,19 +12,20 @@ const category = [
   { link: 'photography', title: 'Фотография' },
   { link: 'art', title: 'Искусство' },
   { link: 'writing', title: 'Письмо' },
-  { link: 'productivity', title: 'Продуктивность' }];
-
+  { link: 'productivity', title: 'Продуктивность' },
+];
 export default function Progress() {
   return (
-    <div>
+    <>
       <div className={style.progress_data}>
-        {category.map((el) => <Link to={`/api/${el.link}`} className="me-3" key={el.link}>{el.title}</Link>)}
-
+        <div>
+          {category.map((el) => <Link to="/api/#" className="me-3" key={el.link}>{el.title}</Link>)}
+        </div>
       </div>
       <div className={style.progress}>
         <UserGames />
         <UserSubscription />
       </div>
-    </div>
+    </>
   );
 }

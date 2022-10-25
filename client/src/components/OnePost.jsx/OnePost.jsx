@@ -10,13 +10,17 @@ export default function OnePost({ post, img }) {
   return (
     <div className={`${style.post__wrapper}`}>
       <div className={style.author}>
-        <img className={style.author__avatar} src={post.User.image ? `http://localhost:3001/${post.User.image}` : avatar} alt="" />
+
+        <img className={style.author__avatar} src={post.User.image ? `http://localhost:3001/${post.User.image}` : avatar} alt="post" />
+
         <p className={style.author__name}>{post.User.name}</p>
       </div>
       <p>
         {post.content}
       </p>
+
       {post.image && (<img className={`${style.img}`} alt="" src={`http://localhost:3001/${post.image}`} />)}
+
       <div>
         <i className="bi bi-chat-left" />
         <input className={`${style.post__input}`} name="text" placeholder="Оставить комментарий..." />

@@ -11,6 +11,7 @@ const categoryRouter = require('./src/routes/categoryRouter');
 const postRouter = require('./src/routes/postRouter');
 const uploadRouter = require('./src/routes/uploadRoute');
 const gameRouter = require('./src/routes/gameRouter');
+const subsriptionRouter = require('./src/routes/subsriptionRouter');
 
 require('dotenv').config();
 
@@ -50,5 +51,6 @@ app.use('/api/community', communityRouter);
 app.use('/api/post', postRouter);
 app.use('/api/challenges', challengeRouter);
 app.use('/api/game', gameRouter);
+app.use('/api/subsription', subsriptionRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

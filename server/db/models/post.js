@@ -4,8 +4,11 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class Post extends Model {
-    static associate({ User }) {
+    static associate({ User, Community }) {
       this.belongsTo(User, { foreignKey: 'user_id' });
+      this.belongsTo(Community, {
+        foreignKey: 'community_id',
+      });
     }
   }
   Post.init({

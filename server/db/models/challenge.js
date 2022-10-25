@@ -4,8 +4,8 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class Challenge extends Model {
-    static associate({ Game }) {
-      this.hasMany(Game, { foreignKey: 'challenge_id' });
+    static associate({ User }) {
+      this.belongsToMany(User, { through: 'Game', foreignKey: 'challenge_id' });
     }
   }
   Challenge.init({

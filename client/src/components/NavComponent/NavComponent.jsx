@@ -32,6 +32,8 @@ export default function MyNavbar() {
         <li className={`${style.navbar_listItem} ${style.navbar_listItem__set}`}>
           <div className="d-flex navbar_set">
             <NavLink to="/" className={`${style.navbar_link}`} aria-current="page"><i className="bi bi-house-door-fill" /></NavLink>
+            <NavLink to="/category/challenge" className={`${style.navbar_link}`} aria-current="page"><i className="bi bi-ui-checks-grid" /></NavLink>
+            <NavLink to="/category/community" className={`${style.navbar_link}`} aria-current="page" style={{ transform: 'scale(1.2)' }}><i className="bi bi-people-fill" /></NavLink>
             {user.id ? (
               <NavLink to={`/progress/${user.id}`} className={style.navbar_link} aria-current="page"><i className="bi bi-trophy-fill" /></NavLink>
             ) : (
