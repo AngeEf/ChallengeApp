@@ -67,6 +67,7 @@ router.get('/findname/:id', async (req, res) => {
   res.json(name);
 });
 
+// CHECK MEMBER
 router.get('/check/:community/member', async (req, res) => {
   if (req.session.user) {
     try {
@@ -86,14 +87,15 @@ router.get('/check/:community/member', async (req, res) => {
 });
 
 // CHECK ADMIN
-router.get('/check/:community/admin', async (req, res) => {
+router.get('/check/:id/admin', async (req, res) => {
   if (req.session.user) {
     try {
-      const admin = await Community.findByPk(Number(req.params.community));
-      if (admin.admin_id === req.session.user.id) {
-        return res.json(admin.admin_id);
+      const admin = await User.findOne({
+        include: [{ model: Community, where: { id: req.params.id } }],
+      });
+      if (admin.id === req.session.user.id) {
+        return res.json(admin);
       }
-      console.log('CHECKKK----->', admin.admin_id);
       return res.json(false);
     } catch (e) {
       console.log(e);
@@ -104,10 +106,17 @@ router.get('/check/:community/admin', async (req, res) => {
 });
 
 // GET ADMIN OF COMMUNITY
+// router.get('/:id/admin', async (req, res) => {
+//   const { id } = req.params;
+//   const admin = await Community.findOne({
+//     where: { id },
+//   });
+//   res.json(admin);
+// });
 router.get('/:id/admin', async (req, res) => {
   const { id } = req.params;
-  const admin = await Community.findOne({
-    where: { id },
+  const admin = await User.findOne({
+    include: [{ model: Community, where: { id } }],
   });
   res.json(admin);
 });

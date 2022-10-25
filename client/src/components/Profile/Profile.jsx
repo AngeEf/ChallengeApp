@@ -12,7 +12,7 @@ export default function Profile() {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
     axios('/api/takepath')
@@ -38,7 +38,7 @@ export default function Profile() {
   //     .then((res) => dispatch(getMulters(user.id)));
   // };
 
-  console.log(img, 'imglog');
+  // console.log(img, 'imglog');
   return (
     <form onSubmit={() => dispatch(editFile(img, user.id).navigate('/'))}>
       <div className={style.wrapper}>
@@ -55,6 +55,7 @@ export default function Profile() {
         <div className={style.avatar_img}>
           <img className={style.avatar} src={`http://localhost:3001/${img}`} alt="avatar" />
         </div>
+
         <input type="file" onChange={imgChangeHandler} />
         <button
           type="submit"

@@ -1,5 +1,7 @@
 const express = require('express');
+const path = require('path');
 const { Community, Member, User } = require('../../db/models');
+const fileMiddleware = require('../middleware/middleware');
 
 const router = express.Router();
 
@@ -14,14 +16,25 @@ router.get('/communities', async (req, res) => {
 });
 
 // CREATE COMMUNITY
-router.post('/communities', async (req, res) => {
-  const {
-    title, subtitle, description, category,
-  } = req.body.input;
+router.post('/communities', fileMiddleware.single('avatar'), async (req, res) => {
   const newCommunity = await Community.create({
-    title, subtitle, description, category, admin_id: req.session.user.id,
+    title: req.body.title, subtitle: req.body.subtitle, description: req.body.description, category: req.body.category, admin_id: req.session.user.id, image: req.file.path,
   });
+  // console.log('--------------------', newCommunity);
   res.json(newCommunity);
+});
+
+router.post('/:community/posts/new', fileMiddleware.single('avatar'), async (req, res) => {
+  const { input } = req.body;
+  const { id } = req.body;
+  try {
+    const edit = await Community.create({
+      community_id: id, user_id: req.session.user.id, task: false, content: input, image: req.file.path,
+    });
+    res.json(edit);
+  } catch (error) {
+    console.log(error, '---');
+  }
 });
 
 // GET ONE COMMUNITY
@@ -66,13 +79,13 @@ router.get('/communities/:category', async (req, res) => {
   return res.json(communitiesByCategory);
 });
 
-// GET MEMBERS OF COMMUNITY
-router.get('/communities/:id/members', async (req, res) => {
+// GET ADMIN OF COMMUNITY
+router.get('/communities/:id/currAdmin', async (req, res) => {
   const { id } = req.params;
-  const members = await User.findAll({
+  const currAdmin = await User.findAll({
     include: [{ model: Community, where: { id } }],
   });
-  res.json(members);
+  res.json(currAdmin);
 });
 
 // JOIN COMMUNITY
@@ -95,6 +108,5 @@ router.delete('/communities/:id/', async (req, res) => {
   });
   res.json(newMember);
 });
-
 
 module.exports = router;

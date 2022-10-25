@@ -29,14 +29,8 @@ export const getPosts = (id) => (dispatch) => {
     .catch(console.log);
 };
 
-export const createPost = (id, input) => (dispatch) => {
-  axios.post(`/api/post/${id}/posts/new`, { id, input })
-    .then((res) => dispatch(newPost(res.data)))
-    .catch(console.log);
-};
-
-export const createAdminPost = (id, input) => (dispatch) => {
-  axios.post(`/api/post/${id}/posts/newAdmin`, { id, input })
+export const createAdminPost = (id, input, img) => (dispatch) => {
+  axios.post(`/api/post/${id}/posts/newAdmin`, { id, input, img })
     .then((res) => dispatch(newAdminPost(res.data)))
     .catch(console.log);
 };
