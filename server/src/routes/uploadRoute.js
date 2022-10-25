@@ -19,7 +19,6 @@ router.post('/upload/:id', fileMiddleware.single('avatar'), async (req, res) => 
 });
 router.get('/takepath', async (req, res) => {
   const user = await User.findOne({ attributes: ['image'], where: { id: req.session.user.id } });
-  console.log(user, 'ussssss');
   res.json(user);
 });
 
