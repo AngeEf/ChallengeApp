@@ -13,10 +13,14 @@ const postSlice = createSlice({
     newPost(state, action) {
       return [...state, action.payload];
     },
+
+    newAdminPost(state, action) {
+      return action.payload;
+    },
   },
 });
 
-export const { setPosts, newPost } = postSlice.actions;
+export const { setPosts, newPost, newAdminPost } = postSlice.actions;
 export default postSlice.reducer;
 
 export const getPosts = (id) => (dispatch) => {
@@ -28,5 +32,11 @@ export const getPosts = (id) => (dispatch) => {
 export const createPost = (id, input) => (dispatch) => {
   axios.post(`/api/post/${id}/posts/new`, { id, input })
     .then((res) => dispatch(newPost(res.data)))
+    .catch(console.log);
+};
+
+export const createAdminPost = (id, input) => (dispatch) => {
+  axios.post(`/api/post/${id}/posts/newAdmin`, { id, input })
+    .then((res) => dispatch(newAdminPost(res.data)))
     .catch(console.log);
 };

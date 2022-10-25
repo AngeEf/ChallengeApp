@@ -40,8 +40,6 @@
   color: #4a4e69;
 }
 
-
-
 .community__btn {
   border-radius: 15px;
   width: 10rem;
@@ -53,11 +51,38 @@
 }
 
 .community__btn:hover {
-  font-size: 15px;
-  transform: scale(.97);
+  transform: scale(1.05);
   transition: .7s;
-  color: beige;
+}
 
+.community__btn__leave {
+  border-radius: 15px;
+  width: 10rem;
+  height: 3rem;
+  border: none;
+  background-color: #ffa5ab;
+  font-size: 16px;
+  transition: .7s;
+}
+
+.community__btn__leave:hover {
+  transform: scale(1.05);
+  transition: .7s;
+}
+
+.community__btn__update {
+  border-radius: 15px;
+  width: 10rem;
+  height: 3rem;
+  border: none;
+  background-color: #9ceaef;
+  font-size: 16px;
+  transition: .7s;
+}
+
+.community__btn__update:hover {
+  transform: scale(1.05);
+  transition: .7s;
 }
 
 .admin__post {

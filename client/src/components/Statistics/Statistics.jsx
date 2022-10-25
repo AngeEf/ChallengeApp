@@ -18,7 +18,7 @@ export default function Statistics({ community }) {
     <div className={`${style.wrapper}`}>
       <h5>Статистика</h5>
       <span>
-        Количество участников:
+        Уже присоединились:
         <span className={style.statistics}>
           {countMembers}
         </span>

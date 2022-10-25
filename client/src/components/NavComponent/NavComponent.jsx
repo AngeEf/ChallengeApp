@@ -21,58 +21,22 @@ export default function MyNavbar() {
         </li>
         <li className={style.navbar_listItem}>
           <div className={style.navbar_group}>
-            <input type="text" className={`${style.navbar_input}`} />
+            <input type="text" className={`${style.navbar_input}`} placeholder="Поиск" />
             <button type="button" className={`${style.navbar_btn}`}>
               <i className="bi bi-search mx-1" />
             </button>
           </div>
-          {/* <div className="input-group input-group-sm nav-input-group">
-            <input
-              type="text"
-              id="nav-input"
-              className="form-control"
-              placeholder="Search"
-              aria-label="Recipient's username"
-              aria-describedby="button-addon2"
-            />
-            <button
-              className={style.btn_navbar}
-              type="submit"
-              id="button-addon2"
-            >
-              <i className="bi bi-search" />
 
-            </button>
-          </div> */}
         </li>
-
-        {/* <li className={`${style.navbar_listItem}`}>
-          <NavLink to="/" className={`${style.navbar_link}`} aria-current="page"><i className="bi bi-house-door-fill" /></NavLink>
-        </li> */}
-        {/* <li className={`${style.navbar_listItem}`}>
-          <NavLink to="/signup" className={`${style.navbar_link}`}>Зарегистрироваться</NavLink>
-        </li>
-        <li className={`${style.navbar_listItem}`}>
-          <NavLink to="/login" className={`${style.navbar_link}`}>Войти</NavLink>
-        </li> */}
-        {/* <li className={`${style.navbar_listItem}`}>
-          <button type="button" className={`${style.btn_navbar}`}>Поиск</button>
-        </li>
-        <li className={`${style.navbar_listItem}`}>
-          <input type="text" className={`${style.input_navbar}`} />
-        </li> */}
-
-        {/* <li className={`${style.navbar_listItem}`}>
-          <NavLink to="/:id/profile" className={`${style.navbar_link}`} aria-current="page">Профиль</NavLink>
-        </li>
-        <li className={`${style.navbar_listItem}`}>
-          <button onClick={() => { dispatch(logoutUser()); navigate('/'); }} className={`${style.btn_navbar}`} type="button">Выйти</button>
-        </li> */}
 
         <li className={`${style.navbar_listItem} ${style.navbar_listItem__set}`}>
           <div className="d-flex navbar_set">
             <NavLink to="/" className={`${style.navbar_link}`} aria-current="page"><i className="bi bi-house-door-fill" /></NavLink>
-            <NavLink to={`/progress/${user.id}`} className={style.navbar_link} aria-current="page"><i className="bi bi-trophy-fill" /></NavLink>
+            {user.id ? (
+              <NavLink to={`/progress/${user.id}`} className={style.navbar_link} aria-current="page"><i className="bi bi-trophy-fill" /></NavLink>
+            ) : (
+              <NavLink to="/login" className={style.navbar_link} aria-current="page"><i className="bi bi-trophy-fill" /></NavLink>
+            )}
 
             <Nav>
               <NavDropdown
@@ -84,9 +48,11 @@ export default function MyNavbar() {
                 <NavDropdown.Item>
                   <NavLink to={`/profile/${user.id}`} className={style.navbar_link} aria-current="page">Профиль</NavLink>
                 </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <NavLink to="/signup" className={style.navbar_link}>Зарегистрироваться</NavLink>
-                </NavDropdown.Item>
+                {!user.id && (
+                  <NavDropdown.Item>
+                    <NavLink to="/signup" className={style.navbar_link}>Зарегистрироваться</NavLink>
+                  </NavDropdown.Item>
+                )}
                 <NavDropdown.Item>
                   <NavLink to="/login" className={style.navbar_link}>Войти</NavLink>
                 </NavDropdown.Item>
@@ -103,27 +69,3 @@ export default function MyNavbar() {
     </nav>
   );
 }
-
-// { /* <Dropdown>
-// <Dropdown.Toggle id="dropdown-basic">
-//   <i className="bi bi-person-fill" />
-// </Dropdown.Toggle>
-// <Dropdown.Menu>
-//   <Dropdown.Item>
-
-//     <NavLink to="/signup" className={style.navbar_link}>Зарегистрироваться</NavLink>
-//   </Dropdown.Item>
-//   <Dropdown.Item>
-
-//     <NavLink to="/:id/profile" className={style.navbar_link} aria-current="page">Профиль</NavLink>
-//   </Dropdown.Item>
-//   <Dropdown.Item>
-
-//     <NavLink to="/login" className={style.navbar_link}>Войти</NavLink>
-//   </Dropdown.Item>
-//   <Dropdown.Item>
-
-//     <NavLink to="#" onClick={() => { dispatch(logoutUser()); }} className={style.navbar_link}>Выйти</NavLink>
-//   </Dropdown.Item>
-// </Dropdown.Menu>
-// </Dropdown> */ }

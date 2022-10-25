@@ -73,13 +73,50 @@ router.get('/check/:community/member', async (req, res) => {
       const member = await Member.findOne({
         where: { user_id: req.session.user.id, community_id: Number(req.params.community) },
       });
-      return res.json(member);
+      if (member !== null) {
+        return res.json(true);
+      }
+      return res.json(false);
     } catch (e) {
       console.log(e);
       return res.sendStatus(500);
     }
   }
   return res.sendStatus(401);
+});
+
+// CHECK ADMIN
+router.get('/check/:community/admin', async (req, res) => {
+  if (req.session.user) {
+    try {
+      const admin = await Community.findByPk(Number(req.params.community));
+      if (admin.admin_id === req.session.user.id) {
+        return res.json(admin.admin_id);
+      }
+      console.log('CHECKKK----->', admin.admin_id);
+      return res.json(false);
+    } catch (e) {
+      console.log(e);
+      return res.sendStatus(500);
+    }
+  }
+  return res.sendStatus(401);
+});
+
+// GET ADMIN OF COMMUNITY
+router.get('/:id/admin', async (req, res) => {
+  const { id } = req.params;
+  const admin = await Community.findOne({
+    where: { id },
+  });
+  res.json(admin);
+});
+
+router.delete('/check/:community/member', async (req, res) => {
+  await Member.destroy({
+    where: { user_id: req.session.user.id, community_id: Number(req.params.community) },
+  });
+  res.sendStatus(200);
 });
 
 module.exports = router;
