@@ -1,11 +1,12 @@
 .admin__post {
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   padding: 1rem;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.122) 0px 1px 4px;
+  /* border-radius: 15px; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .admin__postTitle {
@@ -15,6 +16,7 @@
   margin-bottom: 0;
   margin-left: 1rem;
   font-size: 18px;
+  text-decoration: none;
 }
 
 .admin__postText {

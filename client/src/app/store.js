@@ -7,6 +7,7 @@ import gameSlice from './slices/gameSlice';
 import memberSlice from './slices/memberSlice';
 import multerSlice from './slices/multerSlice';
 import postSlice from './slices/postSlice';
+import userCommunitySlice from './slices/userCommunitySlice';
 import userGameSlice from './slices/userGameSlice';
 import userSlice from './slices/userSlice';
 
@@ -22,5 +23,6 @@ export default configureStore({
     userGame: userGameSlice,
     adminPost: adminPostSlice,
     admin: adminSlice,
+    userCommunity: userCommunitySlice,
   },
 });

@@ -12,23 +12,22 @@ export default function UserGames() {
 
   const dispatch = useDispatch();
   const format = 'DD.MM.YYYY';
-  // const [parseProgress, setParseProgress] = [];
 
-  // const parseObj = () => {
-  //   setParseProgress(userGame?.map((el) => JSON.parse(el.progress)));
-  //   console.log(parseProgress);
-  // };
   useEffect(() => {
     dispatch(allActiveGameOfUserAsync());
     // parseObj();
   }, []);
-  const getDate = (start) => (moment(start).format(format));
-  const getDeadline = (start) => (moment(start).add(30, 'days').format(format));
+
+  const getDate = (dateCreate) => (moment(dateCreate).format(format));
+  const getDeadline = (dateCreate) => (moment(dateCreate).add(30, 'days').format(format));
+  // const compairDate = (dateCreate) => {
+  //   const deadline = moment('2023-10-25T10:58:22+03:00').format();
+  //   const now = moment().format();
+  //   if (deadline > now) return true;
+  //   return false;
+  // };
 
   const checkHandler = (num, game) => {
-    // console.log(typeof num, num);
-    // console.log({ game });
-    // console.log('!!!!!!!!!!!', JSON.parse(obj));
     const update = JSON.parse(game.progress);
     update[num] = true;
     dispatch(changeProgressAsync(update, game.id));
@@ -49,12 +48,7 @@ export default function UserGames() {
                   style={{
                     backgroundColor: (parseProgress[el] === true) ? '#f4d2bc' : 'white',
                   }}
-                  // {(JSON.parse(elem.progress).el === true )? (
-                  //   style={{ backgroundColor: 'blue' }}
-                  // ): (
-                  //     style={{ backgroundColor: 'red' }}
-                  //   )}
-                  // style={{ backgroundColor: 'red' }}
+                  disabled={elem?.status !== true}
                   type="button"
                   className={style.game_item}
                   key={el}
@@ -66,7 +60,7 @@ export default function UserGames() {
             })}
           </div>
           <div className={style.game_box}>
-            <span className={style.game_data}>{(elem.status === true) ? ('In Progress') : ('Completed')}</span>
+            <span className={style.game_data}>{(elem?.status === true) ? ('In Progress') : ('Completed')}</span>
             <span className={style.game_data}>{`Deadline: ${getDeadline(elem.createdAt)}`}</span>
           </div>
         </div>

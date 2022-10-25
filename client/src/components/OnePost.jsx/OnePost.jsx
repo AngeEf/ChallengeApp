@@ -8,16 +8,16 @@ export default function OnePost({ post }) {
   return (
     <div className={`${style.post__wrapper}`}>
       <div className={style.author}>
-        <img className={style.author__avatar} src={post.User.image.length ? post.User.image : avatar} alt="" />
+        <img className={style.author__avatar} src={post.User.image ? `http://localhost:3001/${post.User.image}` : avatar} alt="post" />
         <p className={style.author__name}>{post.User.name}</p>
       </div>
       <p>
         {post.content}
       </p>
       {post.image?.includes('http') && (
-      <div className={`${style.img__wrapper}`}>
-        <img className={`${style.img}`} alt="comm_photo" src={post.image} />
-      </div>
+        <div className={`${style.img__wrapper}`}>
+          <img className={`${style.img}`} alt="comm_photo" src={post.image} />
+        </div>
       )}
       <div>
         <i className="bi bi-chat-left" />

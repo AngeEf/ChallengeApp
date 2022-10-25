@@ -25,20 +25,6 @@ export default function SectionCommunities() {
 
         <div className={style.cards}>
 
-          {/* {communities?.slice(0, 6).map((el) => (
-            <>
-              <div className={style.card}>
-                <div className={style.card_box}>
-                  <img className={style.card_img} src={el.image ? el.image : 'https://s3.castbox.fm/fe/19/e7/9ed47e47e8ba399fc32052f816.png'} alt="challenge" />
-                </div>
-                <div className={style.card_content}>
-                  <h3>{el.title}</h3>
-                  <h5>{el.subtitle}</h5>
-                </div>
-              </div>
-            </>
-          ))} */}
-
           {Array.isArray(communities) && communities?.map((el) => (
             <div key={el.id}>
               <div className={style.card} onClick={() => navigate(`/community/${el.id}`)}>
@@ -52,17 +38,6 @@ export default function SectionCommunities() {
               </div>
             </div>
           ))}
-
-          {/* card 1 */}
-          {/* <div className={style.card}>
-            <div className={style.card_box}>
-              <img className={style.card_img} src="https://s3.castbox.fm/fe/19/e7/9ed47e47e8ba399fc32052f816.png" alt="challenge" />
-            </div>
-            <div className={style.card_content}>
-              <h3>Card Title</h3>
-              <h5>Some quick example</h5>
-            </div>
-          </div> */}
 
           {/* final */}
         </div>

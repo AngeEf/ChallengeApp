@@ -71,7 +71,7 @@ export default function Posts({ community }) {
       <div className={`${style.admin__post}`}>
         <div className={`${style.admin__postHeader}`}>
           <i className={`${style.admin__postIcon} bi bi-pin-angle`} />
-          <img className={style.admin__postAvatar} src={background} alt="" />
+          <img className={style.admin__postAvatar} src={background} alt="post" />
           <p className={`${style.admin__postTitle}`}>{`Задание для участников ${community.title}`}</p>
         </div>
         <div className={`${style.admin__postText}`}><p>{adminPost[0]?.content}</p></div>

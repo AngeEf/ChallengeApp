@@ -19,7 +19,6 @@ import ProtectedRoute from './helper/ProtectedRoute/ProtectedRoute';
 
 function App() {
   const user = useSelector((state) => state.user);
-  const [isLoaded, setIsLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {

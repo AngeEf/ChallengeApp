@@ -17,8 +17,8 @@ module.exports = (sequelize, DataTypes) => {
       Game,
       Members,
     }) {
-      this.belongsToMany(Community, { through: 'Members', foreignKey: 'community_id' });
-      this.belongsToMany(Challenge, { through: 'Game', foreignKey: 'challenge_id' });
+      this.belongsToMany(Community, { through: 'Members', foreignKey: 'user_id' });
+      this.belongsToMany(Challenge, { through: 'Game', foreignKey: 'user_id' });
       this.hasMany(Post, { foreignKey: 'user_id' });
       this.hasMany(Comment, { foreignKey: 'user_id' });
       this.hasMany(Community, { foreignKey: 'admin_id' });
