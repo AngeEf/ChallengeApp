@@ -2,6 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import adminPostSlice from './slices/adminPostSlice';
 import adminSlice from './slices/adminSlice';
 import challengeSlice from './slices/challengeSlice';
+import checkAdminSlice from './slices/checkAdminSlice';
+import checkMemberSlice from './slices/checkMemberSlice';
 import communitySlice from './slices/communitySlice';
 import gameSlice from './slices/gameSlice';
 import memberSlice from './slices/memberSlice';
@@ -24,5 +26,7 @@ export default configureStore({
     adminPost: adminPostSlice,
     admin: adminSlice,
     userCommunity: userCommunitySlice,
+    checkMember: checkMemberSlice,
+    checkAdmin: checkAdminSlice,
   },
 });

@@ -25,9 +25,3 @@ export const writeAdminPost = (id) => (dispatch) => {
     .then((res) => dispatch(setAdminPost(res.data)))
     .catch(console.log);
 };
-
-// export const getAdminPost = (id) => (dispatch) => {
-//   axios.get(`/api/post/${id}/posts/adminPost`)
-//     .then((res) => dispatch(showAdminPost(res.data)))
-//     .catch(console.log);
-// };

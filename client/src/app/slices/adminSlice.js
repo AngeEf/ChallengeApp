@@ -10,10 +10,6 @@ const adminSlice = createSlice({
     setAdmin(state, action) {
       return action.payload;
     },
-
-    isAdmin(state, action) {
-      return action.payload;
-    },
   },
 });
 
@@ -24,10 +20,4 @@ export const getAdmin = (id) => (dispatch) => {
   axios.get(`/api/user/${id}/admin`)
     .then((res) => dispatch(setAdmin(res.data)))
     .catch(console.log);
-};
-
-export const checkAdmin = (id) => (dispatch) => {
-  axios.get(`api/user/check/${id}/admin`)
-    .then((res) => isAdmin(res.data))
-    .catch(console.log());
 };

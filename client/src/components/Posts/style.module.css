@@ -5,10 +5,12 @@
 
 label {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     font-size: 18px;
     color: grey;
     cursor: pointer;
     width: 100%;
+    text-align: center;
 }
 
 .posts__btn {
@@ -33,6 +35,10 @@ label {
     border: none;
     background-color: #bb8588;
     font-size: 16px;
+}
+
+.wrapper__btn {
+  display: flex;
 }
 
 .hidden__wrapper {    
