@@ -18,9 +18,8 @@ router.get('/communities', async (req, res) => {
 // CREATE COMMUNITY
 router.post('/communities', fileMiddleware.single('avatar'), async (req, res) => {
   const newCommunity = await Community.create({
-    title: req.body.title, subtitle: req.body.subtitle, description: req.body.description, category: req.body.category, admin_id: req.session.user.id, image: req.file.path,
+    title: req.body.title, subtitle: req.body.subtitle, description: req.body.description, category: req.body.category, admin_id: req.session.user.id, image: req.file?.path ? req.file?.path : null,
   });
-  // console.log('--------------------', newCommunity);
   res.json(newCommunity);
 });
 
@@ -91,22 +90,25 @@ router.get('/communities/:id/currAdmin', async (req, res) => {
 // JOIN COMMUNITY
 router.post('/communities/:id/join', async (req, res) => {
   const { id } = req.params;
-  const newMember = await Member.create({
-    community_id: id, user_id: req.session.user.id,
+  const newMember = await Member.findOrCreate({
+    where: { user_id: id },
+    defaults: {
+      community_id: id,
+    },
   });
   res.json(newMember);
 });
 
 // LEAVE COMMUNITY
-router.delete('/communities/:id/', async (req, res) => {
-  const { community_id } = req.params;
-  const { user_id } = req.session.user.id;
-  const newMember = await Member.destroy({
+router.delete('/communities/:comm_id/', async (req, res) => {
+  const { comm_id } = req.params;
+  const { id } = req.session.user;
+  const deleteMember = await Member.destroy({
     where: {
-      community_id, user_id,
+      community_id: comm_id, user_id: id,
     },
   });
-  res.json(newMember);
+  res.json(id);
 });
 
 module.exports = router;

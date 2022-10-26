@@ -25,7 +25,7 @@ router.post('/:community/posts/new', fileMiddleware.single('avatar'), async (req
   const { id } = req.body;
   try {
     const edit = await Post.create({
-      community_id: id, user_id: req.session.user.id, task: false, content: input, image: req.file.path,
+      community_id: id, user_id: req.session.user.id, task: false, content: input, image: req.file?.path ? req.file?.path : '',
     });
     res.json(edit);
   } catch (error) {
@@ -38,7 +38,7 @@ router.post('/:community/posts/newAdmin', fileMiddleware.single('avatar'), async
   const { input } = req.body;
   const { id } = req.body;
   const newPost = await Post.create({
-    community_id: id, user_id: req.session.user.id, task: true, content: input, image: req.file.path,
+    community_id: id, user_id: req.session.user.id, task: true, content: input, image: req.file?.path ? req.file?.path : '',
   });
   res.json(newPost);
 });

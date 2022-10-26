@@ -1,5 +1,7 @@
 .card {
     overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    
 }
 .cart_img {
     width: 350px;
@@ -13,4 +15,31 @@
     height: 100%;
     object-fit: cover;
     object-position: center center;
+}
+
+.card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+}
+
+.card__btn {
+    align-self: flex-start;
+    width: 9rem;
+    height: 2rem;
+    border-radius: 15px;
+    border: none;
+    background-color: aquamarine;
+
+}
+
+.card__title {
+    /* position: absolute; */
+    /* top: 220px; */
+}
+
+.card__text {
+    /* position: absolute; */
+    /* top: 240px; */
 }

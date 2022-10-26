@@ -6,6 +6,7 @@ import style from './style.module.css';
 import { getChallenges } from '../../app/slices/challengeSlice';
 
 export default function CardItemChallenge() {
+  const image = 'https://i.pinimg.com/564x/6e/13/14/6e13140258774878ec96d2c147492ab7.jpg';
   const challenges = useSelector((state) => state.challenges);
 
   // const { id } = useParams();
@@ -22,7 +23,8 @@ export default function CardItemChallenge() {
       {challenges?.map((el) => (
         <Card className={style.card} key={el.id}>
           <div className={style.cart_img}>
-            <Card.Img className={style.cart_photo} variant="top" src={`http://localhost:3001/${el.image}`} />
+            {/* <Card.Img className={style.cart_photo} variant="top" src={el.image} /> */}
+            <Card.Img className={style.cart_photo} variant="top" src={el?.image ? `http://localhost:3001/${el?.image}` : image} />
           </div>
           <Card.Body>
             <Card.Title>{el.title}</Card.Title>

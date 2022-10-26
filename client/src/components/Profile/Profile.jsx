@@ -45,14 +45,14 @@ export default function Profile() {
           </label>
         </div>
         <div className={style.avatar_img}>
+          {/* <img className={style.avatar} src={`http://localhost:3001/${img}`} alt="avatar" /> */}
+          {/* <img className={style.avatar} src={user?.image ? `http://localhost:3001/${user?.image}` : image} alt="avatar" /> */}
           {img ? (
-
             <img className={style.avatar} src={`http://localhost:3001/${img}`} alt={`http://localhost:3001/${image?.image}`} />
           ) : (
             <img className={style.avatar} src="https://vk.com/images/camera_400.png" alt="avatar" />
           )}
         </div>
-
         <input type="file" onChange={imgChangeHandler} />
         <button
           type="submit"
