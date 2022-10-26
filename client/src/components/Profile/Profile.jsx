@@ -7,6 +7,7 @@ import style from './style.module.css';
 import { editFile, getMulters } from '../../app/slices/multerSlice';
 
 export default function Profile() {
+  const image = 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png';
   const [img, setImg] = useState();
 
   const user = useSelector((state) => state.user);
@@ -53,7 +54,8 @@ export default function Profile() {
           </label>
         </div>
         <div className={style.avatar_img}>
-          <img className={style.avatar} src={`http://localhost:3001/${img}`} alt="avatar" />
+          {/* <img className={style.avatar} src={`http://localhost:3001/${img}`} alt="avatar" /> */}
+          <img className={style.avatar} src={user?.image ? `http://localhost:3001/${user?.image}` : image} alt="avatar" />
         </div>
 
         <input type="file" onChange={imgChangeHandler} />
