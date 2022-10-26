@@ -25,9 +25,11 @@ export default function SectionChallenges() {
         <div className={style.cards}>
           {/* card 1 */}
           {Array.isArray(challenges) && challenges?.map((el) => (
+
             <div className={style.card} onClick={() => navigate(`/challenge/${el.id}`)} key={el.id}>
               <div className={style.card_box}>
-                <img className={style.card_img} src={el.image} alt="challenge" />
+                {console.log(el)}
+                <img className={style.card_img} src={`http://localhost:3001/${el.image}`} alt="challeng" />
               </div>
               <div className={style.card_content}>
                 <h3 className={style.card_title}>{el.title}</h3>
