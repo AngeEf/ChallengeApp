@@ -18,7 +18,7 @@ export default function NewCommunity() {
     e.preventDefault();
     const data = new FormData();
     data.append('avatar', img);
-    data.append('content', input.content);
+    data.append('title', input.title);
     data.append('subtitle', input.subtitle);
     data.append('category', input.category);
     data.append('description', input.description);
@@ -39,7 +39,7 @@ export default function NewCommunity() {
         }}
       >
         <label htmlFor="title">Название сообщества:</label>
-        <input className={style.input} type="text" id="title" name="content" />
+        <input className={style.input} type="text" id="title" name="title" />
         <label htmlFor="subtitle">Краткое описание:</label>
         <input className={style.input} type="text" id="subtitle" name="subtitle" />
         <label htmlFor="category">Категория:</label>

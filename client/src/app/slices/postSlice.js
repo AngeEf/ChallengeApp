@@ -13,10 +13,6 @@ const postSlice = createSlice({
     newPost(state, action) {
       return [...state, action.payload];
     },
-
-    newAdminPost(state, action) {
-      return action.payload;
-    },
   },
 });
 
@@ -29,8 +25,13 @@ export const getPosts = (id) => (dispatch) => {
     .catch(console.log);
 };
 
-export const createAdminPost = (id, input, img) => (dispatch) => {
-  axios.post(`/api/post/${id}/posts/newAdmin`, { id, input, img })
-    .then((res) => dispatch(newAdminPost(res.data)))
+export const createNewPost = (data, id) => (dispatch) => {
+  axios.post(`http://localhost:3001/api/post/${id}/posts/new`, data, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+    withCredentials: true,
+  })
+    .then((res) => { dispatch(newPost(res.data)); dispatch(getPosts(id)); })
     .catch(console.log);
 };

@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { checkMember } from './checkMemberSlice';
+import { getOneCommunity } from './communitySlice';
 
 const initialState = [];
 
@@ -14,10 +16,14 @@ const memberSlice = createSlice({
     setNewMember(state, action) {
       return [...state, action.payload];
     },
+
+    setDeleteMember(state, action) {
+      return state.filter((el) => el.id !== action.payload);
+    },
   },
 });
 
-export const { setCurrAdmin, setNewMember, setCheckMember } = memberSlice.actions;
+export const { setCurrAdmin, setNewMember, setDeleteMember } = memberSlice.actions;
 export default memberSlice.reducer;
 
 export const getCurrAdmin = (id) => (dispatch) => {
@@ -28,6 +34,14 @@ export const getCurrAdmin = (id) => (dispatch) => {
 
 export const createMember = (id) => (dispatch) => {
   axios.post(`/api/community/communities/${id}/join`, { withCredentials: true })
-    .then((res) => dispatch(setNewMember(res.data)))
+    .then((res) => {
+      dispatch(setNewMember(res.data)); dispatch(checkMember(id));
+    })
+    .catch(console.log);
+};
+
+export const deleteMember = (id) => (dispatch) => {
+  axios.delete(`/api/community/communities/${id}`, { withCredentials: true })
+    .then((res) => { dispatch(setDeleteMember(res.data)); dispatch(checkMember(id)); })
     .catch(console.log);
 };
