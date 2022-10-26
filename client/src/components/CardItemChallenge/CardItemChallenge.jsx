@@ -22,7 +22,7 @@ export default function CardItemChallenge() {
       {challenges?.map((el) => (
         <Card className={style.card} key={el.id}>
           <div className={style.cart_img}>
-            <Card.Img className={style.cart_photo} variant="top" src={el.image} />
+            <Card.Img className={style.cart_photo} variant="top" src={`http://localhost:3001/${el.image}`} />
           </div>
           <Card.Body>
             <Card.Title>{el.title}</Card.Title>
