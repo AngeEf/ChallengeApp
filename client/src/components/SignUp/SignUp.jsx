@@ -10,7 +10,11 @@ export default function SingUp() {
 
   return (
     <div className={style.wrapper}>
-      <form onSubmit={(e) => { dispatch(signupUser(e, Object.fromEntries(new FormData(e.target)))); navigate('/'); }}>
+      <form onSubmit={(e) => {
+        dispatch(signupUser(e, Object.fromEntries(new FormData(e.target))));
+        navigate('/');
+      }}
+      >
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Имя

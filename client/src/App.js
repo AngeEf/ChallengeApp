@@ -19,11 +19,12 @@ import ProtectedRoute from './helper/ProtectedRoute/ProtectedRoute';
 
 function App() {
   const user = useSelector((state) => state.user);
+  const multer = useSelector((state) => (state.multer));
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkAuth());
-  }, []);
+  }, [multer]);
   return (
     <div className="page">
       <NavComponent />
