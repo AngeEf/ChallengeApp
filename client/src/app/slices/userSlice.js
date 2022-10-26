@@ -34,7 +34,13 @@ export const loginUser = (e, inputs) => (dispatch) => {
 
 export const signupUser = (e, inputs) => (dispatch) => {
   e.preventDefault();
-  axios.post('/api/user/signup', inputs)
+  // inputs.append('avatar', img);
+  console.log(Object.fromEntries(inputs));
+  axios.post('/api/user/signup', inputs, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  })
     .then((res) => dispatch(setAuthUser(res.data)))
     .catch(console.log);
 };
