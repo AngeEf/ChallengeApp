@@ -2,21 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { writeAdminPost } from '../../app/slices/adminPostSlice';
+import { createAdminPost, getAdminPost } from '../../app/slices/adminPostSlice';
 import { getAdmin } from '../../app/slices/adminSlice';
-import { createAdminPost, getPosts } from '../../app/slices/postSlice';
+import { createNewPost, getPosts } from '../../app/slices/postSlice';
 import { checkAuth } from '../../app/slices/userSlice';
 import { checkMember } from '../../app/slices/checkMemberSlice';
 import OnePost from '../OnePost.jsx/OnePost';
 import style from './style.module.css';
 import checkAdminSlice, { checkAdmin } from '../../app/slices/checkAdminSlice';
+import { getOneCommunity } from '../../app/slices/communitySlice';
 
-export default function Posts({ community }) {
+export default function Posts() {
   const background = 'https://i.pinimg.com/564x/79/d3/66/79d3667409ad6ee99cfc400bf2a76da1.jpg';
   const posts = useSelector((state) => state.post);
   const dispatch = useDispatch();
   const { id } = useParams();
-  const adminPost = useSelector((state) => state.adminPost);
   const [input, setInput] = useState('');
   const location = useLocation();
   const user = useSelector((state) => state.user);
@@ -24,8 +24,15 @@ export default function Posts({ community }) {
   const isMember = useSelector((state) => state.checkMember);
   const isAdmin = useSelector((state) => state.checkAdmin);
   const [img, setImg] = useState();
+  const admPost = useSelector((state) => state.adminPost);
+  const community = useSelector((state) => state.communities);
+  const [state, setState] = useState(false);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(getOneCommunity(id));
+  }, []);
 
   useEffect(() => {
     dispatch(checkAuth());
@@ -40,7 +47,7 @@ export default function Posts({ community }) {
   }, []);
 
   useEffect(() => {
-    dispatch(writeAdminPost(id));
+    dispatch(getAdminPost(id));
   }, []);
 
   useEffect(() => {
@@ -55,10 +62,6 @@ export default function Posts({ community }) {
     setInput(() => (e.target.value));
   };
 
-  const taskHandler = () => {
-    dispatch(createAdminPost(id, input, img));
-  };
-
   const imgChangeHandler = ((e) => {
     setImg(e.target.files[0]);
   });
@@ -69,12 +72,13 @@ export default function Posts({ community }) {
     data.append('avatar', img);
     data.append('input', input);
     data.append('id', id);
-    axios.post(`http://localhost:3001/api/post/${id}/posts/new`, data, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      withCredentials: true,
-    });
+    // axios.post(`http://localhost:3001/api/post/${id}/posts/new`, data, {
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data',
+    //   },
+    //   withCredentials: true,
+    // });
+    dispatch(createNewPost(data, id));
   };
 
   const editAdminFile = (e) => {
@@ -83,15 +87,16 @@ export default function Posts({ community }) {
     data.append('avatar', img);
     data.append('input', input);
     data.append('id', id);
-    axios.post(`http://localhost:3001/api/post/${id}/posts/newAdmin`, data, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      withCredentials: true,
-    });
+    // axios.post(`http://localhost:3001/api/post/${id}/posts/newAdmin`, data, {
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data',
+    //   },
+    //   withCredentials: true,
+    // });
+    dispatch(createAdminPost(data, id));
   };
 
-  // console.log('ADMINPOST', adminPost[0]?.image);
+  // console.log('ADMIN POST', admPost);
 
   return (
     <div>
@@ -101,9 +106,10 @@ export default function Posts({ community }) {
           <img className={style.admin__postAvatar} src={background} alt="" />
           <p className={`${style.admin__postTitle}`}>{`Задание сообщества "${community.title}"`}</p>
         </div>
-        <div className={`${style.admin__postText}`}><p>{adminPost[0]?.content}</p></div>
-        {adminPost[0]?.image && (<img className={`${style.img}`} alt="" src={`http://localhost:3001/${adminPost[0]?.image}`} />)}
+        <div className={`${style.admin__postText}`}><p>{admPost[0]?.content}</p></div>
+        {admPost[0]?.image && (<img className={`${style.img}`} alt="" src={`http://localhost:3001/${admPost[0]?.image}`} />)}
       </div>
+
       <div className={`${style.wrapper}`} />
       {(isMember || (admin?.id === user?.id)) && (
       <div className={`${style.label}`}>
@@ -116,16 +122,16 @@ export default function Posts({ community }) {
 
               <input name="image" type="file" onChange={imgChangeHandler} />
 
-              <button onClick={(e) => { editFile(e); }} className={style.posts__btn} type="submit">Опубликовать</button>
+              <button onClick={(e) => { editFile(e); setInput(''); }} className={style.posts__btn} type="submit">Создать пост</button>
 
-              {admin?.id === user?.id ? (<button onClick={(e) => editAdminFile(e)} className={style.posts__btn__red} type="submit">Задание</button>) : ''}
+              {admin?.id === user?.id ? (<button onClick={(e) => { editAdminFile(e); setInput(''); }} className={style.posts__btn__red} type="submit">Задание</button>) : ''}
             </div>
           </form>
         </label>
       </div>
       )}
 
-      {posts?.map((el) => <OnePost img={img} post={el} key={el.id} />)}
+      {posts?.map((el) => <OnePost post={el} key={el.id} />)}
     </div>
   );
 }

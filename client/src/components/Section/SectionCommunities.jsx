@@ -29,7 +29,7 @@ export default function SectionCommunities() {
             <div key={el.id}>
               <div className={style.card} onClick={() => navigate(`/community/${el.id}`)}>
                 <div className={style.card_box}>
-                  <img className={style.card_img} src={el.image ? el.image : 'https://s3.castbox.fm/fe/19/e7/9ed47e47e8ba399fc32052f816.png'} alt="challenge" />
+                  <img className={style.card_img} src={el ? `http://localhost:3001/${el.image}` : 'https://s3.castbox.fm/fe/19/e7/9ed47e47e8ba399fc32052f816.png'} alt="challenge" />
                 </div>
                 <div className={style.card_content}>
                   <h3 className={style.card_title}>{el.title}</h3>

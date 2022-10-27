@@ -4,7 +4,7 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class Community extends Model {
-    static associate({User, Post}) {
+    static associate({ User, Post }) {
       this.belongsToMany(User, { through: 'Members', foreignKey: 'community_id' });
       this.belongsTo(User, { foreignKey: 'admin_id' });
       this.hasMany(Post, {

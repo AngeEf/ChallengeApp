@@ -1,29 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MainPage from './components/MainPage/MainPage';
-import CategoryView from './components/CategoryView/CategoryView';
-import CommunityView from './components/CommunityView/CommunityView';
-import ChallengeView from './components/ChallengeView/ChallengeView';
-import NavComponent from './components/NavComponent/NavComponent';
-import Login from './components/Login/Login';
-import SingUp from './components/SignUp/SignUp';
-import Progress from './components/Progress/Progress';
+import { Route, Routes } from 'react-router-dom';
 import { checkAuth } from './app/slices/userSlice';
+import CategoryView from './components/CategoryView/CategoryView';
+import ChallengeView from './components/ChallengeView/ChallengeView';
+import CommunityView from './components/CommunityView/CommunityView';
+import Login from './components/Login/Login';
+import MainPage from './components/MainPage/MainPage';
+import NavComponent from './components/NavComponent/NavComponent';
+import NewCommunity from './components/newCommunity/NewCommunity';
 import Profile from './components/Profile/Profile';
+import Progress from './components/Progress/Progress';
 import SectionViewChallenge from './components/SectionView/SectionViewChallenge';
 import SectionViewCommunity from './components/SectionView/SectionViewCommunity';
-import NewCommunity from './components/newCommunity/NewCommunity';
+import SingUp from './components/SignUp/SignUp';
 import UpdateCommunity from './components/UpdateCommunity/UpdateCommunity';
 import ProtectedRoute from './helper/ProtectedRoute/ProtectedRoute';
 
 function App() {
   const user = useSelector((state) => state.user);
+  const multer = useSelector((state) => (state.multer));
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkAuth());
-  }, []);
+  }, [multer]);
   return (
     <div className="page">
       <NavComponent />

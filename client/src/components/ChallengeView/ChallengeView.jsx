@@ -73,7 +73,7 @@ export default function ChallengeView() {
       </div>
       <div className={style.image}>
         <div className={style.image_box}>
-          <img className={style.image_photo} src={challenges.image} alt="challenge1" />
+          <img className={style.image_photo} src={`http://localhost:3001/${challenges.image}`} alt="challenge1" />
         </div>
       </div>
     </div>

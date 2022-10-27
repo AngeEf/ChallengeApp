@@ -11,14 +11,20 @@ router.post('/upload/:id', fileMiddleware.single('avatar'), async (req, res) => 
     console.log('req.file.path------', req.file.path, 'finish-----');
     const edit = await User.update({
       image: req.file.path,
+      name: req.body.name,
     }, { where: { id: req.session.user.id } });
-    res.json(edit);
+    const findImg = await User.findByPk(req.session.user.id);
+    console.log(edit, 'sdsda Edsssssssit');
+
+    console.log(findImg, 'sdsda find');
+    res.json(findImg);
   } catch (error) {
     console.log(error, '---');
   }
 });
 router.get('/takepath', async (req, res) => {
-  const user = await User.findOne({ attributes: ['image'], where: { id: req.session.user.id } });
+  const user = await User.findOne({ attributes: ['image', 'name'], where: { id: req.session.user.id } });
+  console.log(user, 'ussssss');
   res.json(user);
 });
 
