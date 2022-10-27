@@ -1,6 +1,6 @@
 .navbar {
   height: 8vh;
-  background-color: #f4d2bc;
+  background-color: var(--first);
   width: 100%;
   position: fixed;
   z-index: 1000;
@@ -53,7 +53,7 @@
 }
 
 .navbar_link:hover {
-  color: #b98b73;
+  color: var(--five);
   transition: .3s;
 }
 
@@ -68,7 +68,7 @@
   height: 2rem;
   /* border-radius: 25px; */
   border: none;
-  background-color: #b98b73;
+  background-color: var(--five);
   color: #ffe8d6;
   font-size: 20px;
   text-align: center;

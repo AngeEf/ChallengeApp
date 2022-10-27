@@ -36,13 +36,13 @@ export default function UserGames() {
     <div className={style.userGame}>
       {userGame?.map((elem) => (
         <div className={style.game} key={elem.id}>
-          <h4 className={style.game_title}>{elem.challenge_id}</h4>
+          <h4 className={style.game_title}>{elem?.Challenge?.title}</h4>
           <p className={style.game_data}>
-            {`Start: ${getDate(elem.createdAt)}`}
+            {`Start: ${getDate(elem?.createdAt)}`}
           </p>
           <div className={style.game_check}>
             {array.map((el) => {
-              const parseProgress = JSON.parse(elem.progress || '{}');
+              const parseProgress = JSON.parse(elem?.progress || '{}');
               return (
                 <button
                   style={{

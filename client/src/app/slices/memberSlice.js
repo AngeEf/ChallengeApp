@@ -14,6 +14,7 @@ const memberSlice = createSlice({
     },
 
     setNewMember(state, action) {
+      console.log('ACTION PAYLOAD', action.payload);
       return [...state, action.payload];
     },
 
@@ -33,6 +34,7 @@ export const getCurrAdmin = (id) => (dispatch) => {
 };
 
 export const createMember = (id) => (dispatch) => {
+  console.log('COMM', id);
   axios.post(`/api/community/communities/${id}/join`, { withCredentials: true })
     .then((res) => {
       dispatch(setNewMember(res.data)); dispatch(checkMember(id));
@@ -42,6 +44,6 @@ export const createMember = (id) => (dispatch) => {
 
 export const deleteMember = (id) => (dispatch) => {
   axios.delete(`/api/community/communities/${id}`, { withCredentials: true })
-    .then((res) => { dispatch(setDeleteMember(res.data)); dispatch(checkMember(id)); })
+    .then((res) => { dispatch(setDeleteMember(res.data)); dispatch(checkMember(id)); console.log('DELTE', res.data); })
     .catch(console.log);
 };

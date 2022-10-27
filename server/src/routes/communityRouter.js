@@ -90,13 +90,29 @@ router.get('/communities/:id/currAdmin', async (req, res) => {
 // JOIN COMMUNITY
 router.post('/communities/:id/join', async (req, res) => {
   const { id } = req.params;
-  const newMember = await Member.findOrCreate({
-    where: { user_id: id },
-    defaults: {
-      community_id: id,
+  // const newMember = await Member.findOrCreate({
+  //   where: { user_id: req.session.user.id },
+  //   defaults: {
+  //     community_id: id,
+  //   },
+  // });
+  const newMember = await Member.create({
+    user_id: req.session.user.id, community_id: id,
+  });
+  console.log('====', newMember);
+  res.json(newMember);
+});
+
+// LEAVE COMMUNITY
+router.delete('/communities/:comm_id/', async (req, res) => {
+  const { comm_id } = req.params;
+  const { id } = req.session.user;
+  const deleteMember = await Member.destroy({
+    where: {
+      community_id: comm_id, user_id: id,
     },
   });
-  res.json(newMember);
+  res.json(id);
 });
 
 // LEAVE COMMUNITY
