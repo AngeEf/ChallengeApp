@@ -2,6 +2,8 @@ import React from 'react';
 import { Nav, NavDropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { allSubscriptionsUserAsync } from '../../app/slices/userCommunitySlice';
+import { allActiveGameOfUserAsync } from '../../app/slices/userGameSlice';
 import { logoutUserAsync } from '../../app/slices/userSlice';
 import style from './style.module.css';
 
@@ -9,6 +11,11 @@ export default function MyNavbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+
+  // const voidGame = () => {
+  //   dispatch(allActiveGameOfUserAsync());
+  //   dispatch(allSubscriptionsUserAsync());
+  // };
 
   return (
     <nav className={`${style.navbar}`}>

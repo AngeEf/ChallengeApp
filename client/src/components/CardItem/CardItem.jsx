@@ -14,8 +14,8 @@ export default function CardItem({ navigateHandler, community }) {
           <Card.Img className={style.cart_photo} variant="top" src={community?.image ? `http://localhost:3001/${community?.image}` : image} />
         </div>
         <Card.Body>
-          <Card.Title>{community.title}</Card.Title>
-          <Card.Text>{community.subtitle}</Card.Text>
+          <Card.Title>{community?.title}</Card.Title>
+          <Card.Text>{community?.subtitle}</Card.Text>
           <Button variant="primary" onClick={() => navigateHandler(community.id)}>Подробнее</Button>
         </Card.Body>
       </Card>

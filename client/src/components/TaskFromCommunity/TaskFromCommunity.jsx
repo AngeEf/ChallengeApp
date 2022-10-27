@@ -11,7 +11,7 @@ export default function TaskFromCommunity() {
   useEffect(() => {
     dispatch(allSubscriptionsUserAsync());
   }, []);
-  console.log(userCommunity);
+  // console.log(userCommunity);
   return (
     <>
       {userCommunity?.map((el) => (

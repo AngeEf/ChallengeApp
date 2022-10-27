@@ -1,3 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;400;500;700&family=Source+Sans+Pro:wght@300;400;600&family=Yeseva+One&display=swap');
+
+:root {
+  /*Color*/
+  /* --light: #7ed56f;
+  --light-rgba: rgba(126, 213, 111, 0.8);
+  --medium: #55c57a;
+  --dark: #28b485;
+  --dark-rgba: rgba(40, 180, 131, 0.8); */
+  --orange-light: #ffb900;
+  --orange: #ff7730;
+  --blue-light: #2998ff;
+  --blue: #5643fa;
+  /* --grey-light: #f7f7f7; */
+  --white: #ffffff;
+  --white-rgba: rgba(255, 255, 255, .6);
+  --black-rgba: rgba(0, 0, 0, 0.4);
+  --first-light: #FFF7EF;
+  --first: #f4d2bc;
+  --first-rgba: rgba(232, 164, 156, .3);
+  --second: #FFBFBE;
+  --second-rgba: rgba(60, 76, 173, .3);
+  --second-dark: #240E8B;
+  --second-dark-rgba: rgba(36, 14, 139, .5);
+  --third: #E4ACD4;
+  --four:#69e0e0;
+  --five:#A1695B;
+  --magenta: #F04393;
+  --magenta-rgba: rgba(240, 67, 147, .3);
+  --yellow: #F9C449;
+  --yellow-rgba: rgba(249, 196, 73, .2);
+  --grey-light: #eaebf0;
+  --grey: #777777;
+
+  /*Text*/
+  --default-text: 14px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,9 +45,7 @@
 body {
   margin: 0;
   font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -23,6 +59,7 @@ body {
   margin: 0 auto;
   /* border: 1px solid red; */
 }
+
 /* .wrapper {
   max-width: 1200px;
 } */

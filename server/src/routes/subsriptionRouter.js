@@ -32,7 +32,7 @@ router.get('/all', async (req, res) => {
     include: [{
       model: User,
       attributes: ['id'],
-      where: { id: 2 },
+      where: { id: req.session.user.id },
     }, {
       model: Post, where: { task: true }, limit: 1, order: [['createdAt', 'DESC']],
     }],
