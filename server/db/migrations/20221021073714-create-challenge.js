@@ -11,6 +11,9 @@ module.exports = {
       image: {
         type: Sequelize.TEXT,
       },
+      icon_image: {
+        type: Sequelize.TEXT,
+      },
       title: {
         type: Sequelize.STRING,
       },
