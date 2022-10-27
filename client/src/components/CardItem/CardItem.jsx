@@ -13,12 +13,12 @@ export default function CardItem({ navigateHandler, community }) {
     <>
       <Card className={style.card} style={{ border: 'none' }}>
         <div className={style.cart_img}>
-          <Card.Img className={style.cart_photo} variant="top" src={community?.image ? `http://localhost:3001/${community?.image}` : image} />
+          <Card.Img style={{ border: 'none' }} className={style.cart_photo} variant="top" src={community?.image ? `http://localhost:3001/${community?.image}` : image} />
         </div>
-        <Card.Body className={style.card__body}>
+        <Card.Body className={style.card__body} style={{ border: 'none' }}>
           <Card.Title className={style.card__title}>{community?.title}</Card.Title>
           <Card.Text className={style.card__text}>{`${community.subtitle?.slice(0, 60)}...`}</Card.Text>
-          <button type="button" className={style.card__btn} onClick={() => navigateHandler(community.id)}>Подробнее</button>
+          <button type="button" className="btn-main align-self-center mt-2" onClick={() => navigateHandler(community.id)}>Подробнее</button>
         </Card.Body>
       </Card>
     </>

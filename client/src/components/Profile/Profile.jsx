@@ -12,16 +12,16 @@ export default function Profile() {
   const [img, setImg] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(image, 'imaaaffff');
-  console.log(user, 'useeeeeeeer');
+  // console.log(image, 'imaaaffff');
+  // console.log(user, 'useeeeeeeer');
 
   useEffect(() => {
     axios('/api/takepath')
       .then((data) => setImg(data?.data.image));
   }, [image]);
-  console.log(img, 'profile img');
+  // console.log(img, 'profile img');
   const imgChangeHandler = ((e) => {
-    console.log(e.target.files[0], '-------00000000-------');
+    // console.log(e.target.files[0], '-------00000000-------');
     setImg(e.target.files[0]);
   });
 

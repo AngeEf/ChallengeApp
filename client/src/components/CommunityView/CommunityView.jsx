@@ -51,9 +51,9 @@ export default function CommunityView() {
     dispatch(deleteMember(id));
   };
 
-  // console.log('admin', admin);
-  // console.log('user', user);
-  // console.log('isMember', isMember);
+  // console.log('admin', admin?.name);
+  // console.log('user', user?.name);
+  console.log('isMember', isMember);
   // console.log('image', communities.image);
 
   return (
