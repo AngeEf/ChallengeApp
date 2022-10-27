@@ -20,15 +20,15 @@ export default function CardItemChallenge() {
   const navigateHandler = (id) => navigate(`/challenge/${id}`);
   return (
     <>
-      {challenges?.map((el) => (
+      {Array.isArray(challenges) && challenges?.map((el) => (
         <Card className={style.card} key={el.id}>
           <div className={style.cart_img}>
             {/* <Card.Img className={style.cart_photo} variant="top" src={el.image} /> */}
             <Card.Img className={style.cart_photo} variant="top" src={el?.image ? `http://localhost:3001/${el?.image}` : image} />
           </div>
           <Card.Body>
-            <Card.Title>{el.title}</Card.Title>
-            <Card.Text>{el.subtitle}</Card.Text>
+            <Card.Title>{el?.title}</Card.Title>
+            <Card.Text>{el?.subtitle}</Card.Text>
             <Button variant="primary" onClick={() => navigateHandler(el.id)}>Подробнее</Button>
           </Card.Body>
         </Card>

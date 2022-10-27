@@ -19,6 +19,7 @@
   /* transform: scale(.8); */
 }
 .game_title {
+  height: 20px;
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 300;

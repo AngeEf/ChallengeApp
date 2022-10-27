@@ -1,32 +1,25 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { allActiveGameOfUserAsync } from '../../app/slices/userGameSlice';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import style from './style.module.css';
 
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 export default function Game() {
-  // const user = useSelector((state) => state.user);
-  // const userGame = useSelector((state) => state.userGame);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(allActiveGameOfUserAsync(user.id));
-  // }, []);
-
-  // const date1 = new Date(userGame[0].createdAt);
-  // console.log(date1);
-  // console.log(date1.toLocaleDateString());
-  // console.log(userGame);
+  const navigate = useNavigate();
   return (
-    <div className={style.game}>
-      <h4 className={style.game_title}>Challenge name</h4>
-      <p className={style.game_data}>Start: 15/10/2022</p>
-      <div className={style.game_check}>
-        {array.map((el) => <button type="button" className={style.game_item} key={el}>{el}</button>)}
-      </div>
-      <div className={style.game_box}>
-        <span className={style.game_data}>Progress: 2/30</span>
-        <span className={style.game_data}>Deadline: 14/11/2022</span>
+    <div className={style.main}>
+      <div className={style.container_grid}>
+        <div className={style.grid}>
+          <div className={`${style.grid_item} ${style.grid_item_1}`} />
+          <div className={`${style.grid_item} ${style.grid_item_2}`} onClick={() => navigate('/category/writing')}>Письмо</div>
+          <div className={`${style.grid_item} ${style.grid_item_3}`} onClick={() => navigate('/category/lifestyle')}>Лайфстайл</div>
+          <div className={`${style.grid_item} ${style.grid_item_4}`} onClick={() => navigate('/category/food')}>Питание</div>
+          <div className={`${style.grid_item} ${style.grid_item_5}`} onClick={() => navigate('/category/art')}>Искусство</div>
+          <div className={`${style.grid_item} ${style.grid_item_6}`} onClick={() => navigate('/category/sport')}>Спорт</div>
+          <div className={`${style.grid_item} ${style.grid_item_7}`} onClick={() => navigate('/category/healty')}>Здоровье</div>
+          <div className={`${style.grid_item} ${style.grid_item_8}`}>Сделай свою жизнь квестом</div>
+          <div className={`${style.grid_item} ${style.grid_item_9}`} onClick={() => navigate('/category/photography')}>Фотография</div>
+          <div className={`${style.grid_item} ${style.grid_item_10}`}>Делись своими успехами</div>
+          <div className={`${style.grid_item} ${style.grid_item_11}`} onClick={() => navigate('/category/productivity')}>Продуктивность</div>
+        </div>
       </div>
     </div>
   );

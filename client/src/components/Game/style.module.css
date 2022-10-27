@@ -1,48 +1,151 @@
-.game {
-  width: 450px;
-  height: 500px;
-  /* background-color: #f4d2bc; */
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  padding: 30px 55px;
-  margin-bottom: 50px;
+.main {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
-.game_title {
-  font-size: 30px;
-  margin-bottom: 10px;
-  color: #ddbea9;
+
+.container_grid {
+  margin: 30px auto;
 }
-.game_check {
+
+.grid {
+  /* counter-reset: tiles; */
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 10px 25px;
-  margin: 0 auto;
-  padding: 15px 0;
+  /* grid-template-columns: repeat(auto-fill, minmax(30%, 1fr)); */
+  grid-auto-rows: 25vh;
+  grid-gap: 15px;
+  /* margin: 16px; */
+  grid-template-columns: repeat(8, 1fr);
+
 }
-.game_item {
-  display: inline-block;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  border: 1px solid #ddbea9;
-  background-color: transparent;
-  transition: .2s all;
-  padding: 0;
-}
-.game_item:hover {
-  transform: translateY(-3px);
-}
-.active {
-  background-color: #ddbea9;
-}
-.game_box {
+
+.grid_item {
+  position: relative;
+  /* border: 5px solid white; */
+  /* background-image: url(https://images.unsplash.com/photo-1613310023042-ad79320c00ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80); */
+  /* object-fit: cover; */
+  padding: 20px;
+  font-family: 'Cormorant Unicase', serif;
+  font-weight: 500;
+  font-size: 22px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: center; */
+  align-items: flex-end;
+  /* text-align: center; */
+  /* box-shadow: rgba(50, 50, 93, 0.15) 0px 30px 60px -12px, rgba(0, 0, 0, 0.15) 0px 18px 36px -18px; */
+  border-radius: 4px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  transition: all .2s;
 }
-.game_data {
-  display: inline-block;
-  margin: 0;
+
+.grid_item_1 {
+  background-color: var(--four);
+  /* background-image:
+    url(../../../public/img/88.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center right; */
+
+}
+
+.grid_item_2 {
+  background-image:
+    url(../../../public/img/112.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.grid_item_3 {
+  grid-column: span 3;
+  background-image:
+    url(../../../public/img/22.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center right;
+}
+
+.grid_item_4 {
+  grid-column: span 3;
+  background-image:
+    url(../../../public/img/114.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center right;
+}
+
+.grid_item_5 {
+  grid-column: span 2;
+  background-image:
+    url(../../../public/img/77.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center right;
+}
+
+.grid_item_6 {
+  grid-row: span 2;
+  background-image:
+    url(../../../public/img/111.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.grid_item_7 {
+  grid-column: span 2;
+  background-image:
+    url(../../../public/img/115.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center right;
+}
+
+.grid_item_8 {
+  background-color: var(--second);
+  grid-column: span 3;
+  font-family: 'Cormorant Unicase', serif;
+  font-weight: 500;
+  font-size: 45px;
+  color: #333;
+  line-height: 1;
+}
+
+.grid_item_9 {
+  grid-column: span 2;
+  background-image:
+    url(../../../public/img/66.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center right;
+}
+
+.grid_item_10 {
+  grid-column: span 2;
+  background-color: var(--third);
+  font-family: 'Cormorant Unicase', serif;
+  font-weight: 500;
+  font-size: 35px;
+  color: #333;
+  line-height: 1;
+}
+
+.grid_item_11 {
+  grid-column: span 3;
+  background-image:
+    url(../../../public/img/44.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center right;
+}
+
+.grid_item_2:hover,
+.grid_item_3:hover,
+.grid_item_4:hover,
+.grid_item_5:hover,
+.grid_item_6:hover,
+.grid_item_7:hover,
+.grid_item_9:hover,
+.grid_item_11:hover {
+  transform: scale(0.9);
 }
