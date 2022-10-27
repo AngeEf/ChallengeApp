@@ -7,9 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ User, Post }) {
       this.belongsToMany(User, { through: 'Members', foreignKey: 'community_id' });
       this.belongsTo(User, { foreignKey: 'admin_id' });
-      this.hasMany(Post, {
-        foreignKey: 'community_id',
-      });
+      this.hasMany(Post, { foreignKey: 'community_id' });
     }
   }
   Community.init({
