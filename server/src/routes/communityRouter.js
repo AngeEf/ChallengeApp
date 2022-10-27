@@ -90,12 +90,16 @@ router.get('/communities/:id/currAdmin', async (req, res) => {
 // JOIN COMMUNITY
 router.post('/communities/:id/join', async (req, res) => {
   const { id } = req.params;
-  const newMember = await Member.findOrCreate({
-    where: { user_id: id },
-    defaults: {
-      community_id: id,
-    },
+  // const newMember = await Member.findOrCreate({
+  //   where: { user_id: req.session.user.id },
+  //   defaults: {
+  //     community_id: id,
+  //   },
+  // });
+  const newMember = await Member.create({
+    user_id: req.session.user.id, community_id: id,
   });
+  console.log('====', newMember);
   res.json(newMember);
 });
 

@@ -19,7 +19,7 @@ export default function Progress() {
     <>
       <div className={style.progress_data}>
         <div>
-          {category.map((el) => <Link to="/api/#" className="me-3" key={el.link}>{el.title}</Link>)}
+          {category.map((el) => <Link to="/api/#" className="main-link me-3" key={el.link}>{el.title}</Link>)}
         </div>
       </div>
       <div className={style.progress}>
