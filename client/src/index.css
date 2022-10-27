@@ -2,16 +2,6 @@
 
 :root {
   /*Color*/
-  /* --light: #7ed56f;
-  --light-rgba: rgba(126, 213, 111, 0.8);
-  --medium: #55c57a;
-  --dark: #28b485;
-  --dark-rgba: rgba(40, 180, 131, 0.8); */
-  --orange-light: #ffb900;
-  --orange: #ff7730;
-  --blue-light: #2998ff;
-  --blue: #5643fa;
-  /* --grey-light: #f7f7f7; */
   --white: #ffffff;
   --white-rgba: rgba(255, 255, 255, .6);
   --black-rgba: rgba(0, 0, 0, 0.4);
@@ -23,14 +13,17 @@
   --second-dark: #240E8B;
   --second-dark-rgba: rgba(36, 14, 139, .5);
   --third: #E4ACD4;
-  --four:#69e0e0;
-  --five:#A1695B;
+  --four: #69e0e0;
+  --five: #A1695B;
   --magenta: #F04393;
   --magenta-rgba: rgba(240, 67, 147, .3);
   --yellow: #F9C449;
   --yellow-rgba: rgba(249, 196, 73, .2);
   --grey-light: #eaebf0;
   --grey: #777777;
+  --btn-main: #FF8889;
+  --btn-main-hover: #FFBFBE;
+  --btn-main-text: #000;
 
   /*Text*/
   --default-text: 14px;
@@ -66,4 +59,32 @@ body {
 #nav-dropdown {
   color: #3f4238;
   padding: 12px 16px 0px;
+}
+
+.btn-main {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  color: var(--btn-main-text);
+  background: var(--btn-main);
+  /* padding: 10px 20px 10px 20px; */
+  width: 150px;
+  height: 40px;
+  text-decoration: none;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.btn-main:hover {
+  background: var(--btn-main-hover);
+  text-decoration: none;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.main-link {
+  text-decoration: none;
+  color: black;
+}
+.main-link:hover {
+  text-decoration: none;
+  color: var(--five);
 }

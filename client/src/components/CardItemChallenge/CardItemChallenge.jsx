@@ -21,15 +21,15 @@ export default function CardItemChallenge() {
   return (
     <>
       {Array.isArray(challenges) && challenges?.map((el) => (
-        <Card className={style.card} key={el.id}>
+        <Card className={style.card} key={el.id} style={{ border: 'none' }}>
           <div className={style.cart_img}>
             {/* <Card.Img className={style.cart_photo} variant="top" src={el.image} /> */}
-            <Card.Img className={style.cart_photo} variant="top" src={el?.image ? `http://localhost:3001/${el?.image}` : image} />
+            <Card.Img style={{ border: 'none' }} className={style.cart_photo} variant="top" src={el?.image ? `http://localhost:3001/${el?.image}` : image} />
           </div>
-          <Card.Body>
+          <Card.Body className={style.card__body}>
             <Card.Title>{el?.title}</Card.Title>
             <Card.Text>{el?.subtitle}</Card.Text>
-            <Button variant="primary" onClick={() => navigateHandler(el.id)}>Подробнее</Button>
+            <button type="button" className="btn-main align-self-center mt-2" onClick={() => navigateHandler(el.id)}>Подробнее</button>
           </Card.Body>
         </Card>
       ))}
