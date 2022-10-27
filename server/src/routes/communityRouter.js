@@ -115,16 +115,4 @@ router.delete('/communities/:comm_id/', async (req, res) => {
   res.json(id);
 });
 
-// LEAVE COMMUNITY
-router.delete('/communities/:comm_id/', async (req, res) => {
-  const { comm_id } = req.params;
-  const { id } = req.session.user;
-  const deleteMember = await Member.destroy({
-    where: {
-      community_id: comm_id, user_id: id,
-    },
-  });
-  res.json(id);
-});
-
 module.exports = router;

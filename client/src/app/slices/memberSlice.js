@@ -37,8 +37,9 @@ export const createMember = (id) => (dispatch) => {
   console.log('COMM', id);
   axios.post(`/api/community/communities/${id}/join`, { withCredentials: true })
     .then((res) => {
-      dispatch(setNewMember(res.data)); dispatch(checkMember(id));
+      dispatch(setNewMember(res.data)); console.log('CREATE', res.data);
     })
+    .then((res) => dispatch(checkMember(id)))
     .catch(console.log);
 };
 

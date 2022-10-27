@@ -30,13 +30,10 @@ export default function SectionViewCommunity() {
     <>
       <div className={style.section_data}>
         <div>
-<<<<<<< HEAD
-          <Link to="/api/#" className="me-3">Все сообщества</Link>
+          {/* <Link to="/api/#" className="me-3">Все сообщества</Link> */}
           {/* <Link to="/api/#">Управление</Link> */}
-=======
           <Link to="/api/#" className={style.section_links}>Все сообщества</Link>
           <Link to="/api/#" className={style.section_links}>Управление</Link>
->>>>>>> main
         </div>
         {/* <button className="btn-main" onClick={() => navigate('/community/new')} type="button">Создать сообщество</button> */}
         {user?.id ? <Button onClick={() => navigate('/community/new')} type="button">Создать сообщество</Button>
