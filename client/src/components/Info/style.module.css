@@ -6,6 +6,11 @@
   padding: 50px;
 
 }
+.info_title {
+  font-size: 22px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
 .info_img {
   /* width: 500px;
   height: 400px; */
