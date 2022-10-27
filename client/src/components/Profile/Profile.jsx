@@ -7,13 +7,7 @@ import style from './style.module.css';
 import { editFile } from '../../app/slices/multerSlice';
 
 export default function Profile() {
-<<<<<<< HEAD
-  const image = 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png';
-  const [img, setImg] = useState();
-
-=======
   const image = useSelector((state) => state.multer);
->>>>>>> main
   const user = useSelector((state) => state.user);
   const [img, setImg] = useState('');
   const navigate = useNavigate();
@@ -54,7 +48,6 @@ export default function Profile() {
           {/* <img className={style.avatar} src={`http://localhost:3001/${img}`} alt="avatar" /> */}
           {/* <img className={style.avatar} src={user?.image ? `http://localhost:3001/${user?.image}` : image} alt="avatar" /> */}
 
-          
           {img ? (
 
             <img className={style.avatar} src={`http://localhost:3001/${img}`} alt={`http://localhost:3001/${image?.image}`} />
