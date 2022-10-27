@@ -45,7 +45,6 @@ export const createMember = (id) => (dispatch) => {
 
 export const deleteMember = (id) => (dispatch) => {
   console.log('COMM22', id);
-
   axios.delete(`/api/community/communities/${id}`, { withCredentials: true })
     .then((res) => { dispatch(setDeleteMember(res.data)); dispatch(checkMember(id)); console.log('DELTE', res.data); })
     .catch(console.log);
