@@ -24,7 +24,7 @@ export default function SectionViewCommunity() {
 
   const navigateHandler = (id) => navigate(`/community/${id}`);
 
-  console.log('USER', user);
+  // console.log('USER', user);
 
   return (
     <>
@@ -34,8 +34,8 @@ export default function SectionViewCommunity() {
           <Link to="/api/#" className={style.section_links}>Управление</Link>
         </div>
         {/* <button className="btn-main" onClick={() => navigate('/community/new')} type="button">Создать сообщество</button> */}
-        {user?.id ? <Button onClick={() => navigate('/community/new')} type="button">Создать сообщество</Button>
-          : <Button onClick={() => navigate('/login')} type="button">Создать сообщество</Button>}
+        {user?.id ? <button className="btn-main" onClick={() => navigate('/community/new')} type="button">Создать сообщество</button>
+          : <button onClick={() => navigate('/login')} type="button">Создать сообщество</button>}
       </div>
       <div className={style.section}>
         {Array.isArray(communities) && communities?.map((el) => <CardItem key={el.id} community={el} navigateHandler={navigateHandler} />)}

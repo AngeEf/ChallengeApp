@@ -18,6 +18,6 @@ export default checkMemberSlice.reducer;
 
 export const checkMember = (id) => (dispatch) => {
   axios.get(`/api/user/check/${id}/member`)
-    .then((res) => { dispatch(isMember(res.data)); console.log('ISMEMBER', res.data); })
+    .then((res) => dispatch(isMember(res.data)))
     .catch(console.log);
 };

@@ -10,17 +10,21 @@
 }
 
 .admin__postTitle {
-  color: #6e1423;
+  color: var(--five);
+  font-family: 'Cormorant Unicase', serif;
+  height: 20px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   margin-bottom: 0;
   margin-left: 1rem;
-  font-size: 18px;
   text-decoration: none;
 }
 
 .admin__postText {
-  color: #3a506b;
+  height: 16px;
+  font-size: 16px;
+
 }
 
 
