@@ -3,6 +3,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Challenges', [{
       image: 'images/ch13.jpeg',
+      icon_image: 'images/icon13.jpg',
       title: 'Marafon',
       subtitle: 'Sport-Marafon Challenge',
       category: 'sport',
@@ -10,6 +11,7 @@ module.exports = {
     },
     {
       image: 'images/ch14.jpeg',
+      icon_image: 'images/icon15.jpeg',
       title: 'Качаем ягодицы',
       subtitle: 'Приседания каждый день ',
       category: 'sport',
@@ -17,6 +19,7 @@ module.exports = {
     },
     {
       image: 'images/ch15.webp',
+      icon_image: 'images/icon4.jpeg',
       title: 'Железо',
       subtitle: 'Тягаем железо каждый день!',
       category: 'sport',
@@ -26,6 +29,7 @@ module.exports = {
     },
     {
       image: 'images/ch5.jpeg',
+      icon_image: 'images/icon1.jpeg',
       title: '100 дней бега',
       subtitle: 'Челлендж: 100 дней ежедневного бега',
       category: 'sport',
@@ -33,6 +37,7 @@ module.exports = {
     },
     {
       image: 'images/ch12.jpg',
+      icon_image: 'images/icon9.jpeg',
       title: 'Здоровое питание',
       subtitle: 'Челлендж здорового питания',
       category: 'food',
@@ -47,6 +52,7 @@ module.exports = {
     },
     {
       image: 'images/ch11.jpeg',
+      icon_image: '',
       title: 'Сбрось лишний вес!',
       subtitle: 'Очисти организм и сбрось лишние килограммы',
       category: 'food',
@@ -60,6 +66,7 @@ module.exports = {
     },
     {
       image: 'images/ch10.png',
+      icon_image: 'images/icon2.jpeg',
       title: 'Планка для девушек',
       subtitle: '30 дней челлендж планки',
       category: 'sport',
@@ -71,6 +78,7 @@ module.exports = {
     },
     {
       image: 'images/ch7.jpeg',
+      icon_image: '',
       title: 'Минимализм челлендж',
       subtitle: 'Модный челлендж про свободу и верность себе',
       category: 'lifestyle',
@@ -78,6 +86,7 @@ module.exports = {
     },
     {
       image: 'images/ch6.jpeg',
+      icon_image: '',
       title: 'Для сладкоежек',
       subtitle: 'Сладкое делает людей счастливее',
       category: 'food',
@@ -85,6 +94,7 @@ module.exports = {
     },
     {
       image: 'images/ch9.jpeg',
+      icon_image: 'images/icon10.jpeg',
       title: 'Арт Состязание',
       subtitle: 'Рисуем каждый день ',
       category: 'art',
@@ -92,6 +102,7 @@ module.exports = {
     },
     {
       image: 'images/ch2.jpeg',
+      icon_image: 'images/icon12.jpeg',
       title: 'Рисование',
       subtitle: 'Рисование в удовольствие',
       category: 'art',
@@ -99,6 +110,7 @@ module.exports = {
     },
     {
       image: 'images/ch4.jpeg',
+      icon_image: 'images/icon11.jpeg',
       title: 'NETFLIX',
       subtitle: 'SERIES CHALLENGE',
       category: 'lifestyle',
@@ -106,6 +118,7 @@ module.exports = {
     },
     {
       image: 'images/ch1.jpeg',
+      icon_image: 'images/icon3.jpeg',
       title: 'Качаем Пресс',
       subtitle: '25 дней работаем с прессом!',
       category: 'sport',
@@ -113,6 +126,7 @@ module.exports = {
     },
     {
       image: 'images/ch3.jpeg',
+      icon_image: 'images/icon6.jpeg',
       title: 'Doodle',
       subtitle: '30 Day Doodle Challenge',
       category: 'lifestyle',
