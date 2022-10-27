@@ -1,14 +1,20 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, useNavigate } from 'react-router-dom';
 import { setNewCommunity } from '../../app/slices/communitySlice';
+import userSlice, { checkAuth } from '../../app/slices/userSlice';
 import style from './style.module.css';
 
 export default function NewCommunity() {
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [img, setImg] = useState();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, []);
 
   const imgChangeHandler = ((e) => {
     setImg(e.target.files[0]);
@@ -29,6 +35,8 @@ export default function NewCommunity() {
       withCredentials: true,
     });
   };
+
+  console.log('USER', user);
 
   return (
     <div className={style.wrapper}>
@@ -56,9 +64,11 @@ export default function NewCommunity() {
         <label htmlFor="description">Описание:</label>
         <textarea className={style.input} type="textarea" id="description" name="description" />
         <input type="file" onChange={imgChangeHandler} />
+
         <button className={style.newCommunity__btn} type="submit">
           Создать сообщество
         </button>
+
       </form>
     </div>
   );
