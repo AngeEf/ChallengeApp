@@ -19,6 +19,7 @@
   /* transform: scale(.8); */
 }
 .game_title {
+  display: inline-block;
   height: 20px;
   font-size: 20px;
   font-family: 'Cormorant Unicase', serif;
@@ -34,6 +35,7 @@
   gap: 8px 20px;
   margin: 0 auto;
   padding: 15px 0;
+  min-height: 280px;
 }
 .game_item {
   display: inline-block;
