@@ -40,12 +40,7 @@
 
 .grid_item_1 {
   background-color: var(--four);
-  /* background-image:
-    url(../../../public/img/88.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center right; */
-
+ 
 }
 
 .grid_item_2 {
@@ -54,6 +49,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
+  cursor: pointer;
 }
 
 .grid_item_3 {
@@ -63,6 +59,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center right;
+  cursor: pointer;
 }
 
 .grid_item_4 {
@@ -72,6 +69,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center right;
+  cursor: pointer;
 }
 
 .grid_item_5 {
@@ -81,15 +79,17 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center right;
+  cursor: pointer;
 }
 
 .grid_item_6 {
   grid-row: span 2;
   background-image:
-    url(../../../public/img/111.jpg);
+    url(../../../public/img/117.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  cursor: pointer;
 }
 
 .grid_item_7 {
@@ -99,6 +99,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center right;
+  cursor: pointer;
 }
 
 .grid_item_8 {
@@ -118,6 +119,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center right;
+  cursor: pointer;
 }
 
 .grid_item_10 {
@@ -137,6 +139,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center right;
+  cursor: pointer;
 }
 
 .grid_item_2:hover,

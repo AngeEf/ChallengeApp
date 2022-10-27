@@ -1,11 +1,20 @@
 .card {
   overflow: hidden;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
 .cart_img {
   width: 350px;
   height: 200px;
   overflow: hidden;
   align-self: center;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: none;
 }
 
 .cart_photo {
