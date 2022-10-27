@@ -12,8 +12,8 @@ export default function Profile() {
   const [img, setImg] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(image, 'imaaaffff');
-  console.log(user, 'useeeeeeeer');
+  // console.log(image, 'imaaaffff');
+  // console.log(user, 'useeeeeeeer');
 
   useEffect(() => {
     axios('/api/takepath')
@@ -47,15 +47,12 @@ export default function Profile() {
         <div className={style.avatar_img}>
           {/* <img className={style.avatar} src={`http://localhost:3001/${img}`} alt="avatar" /> */}
           {/* <img className={style.avatar} src={user?.image ? `http://localhost:3001/${user?.image}` : image} alt="avatar" /> */}
-
           {img ? (
-
             <img className={style.avatar} src={`http://localhost:3001/${img}`} alt={`http://localhost:3001/${image?.image}`} />
           ) : (
             <img className={style.avatar} src="https://vk.com/images/camera_400.png" alt="avatar" />
           )}
         </div>
-
         <input type="file" onChange={imgChangeHandler} />
         <button
           type="submit"

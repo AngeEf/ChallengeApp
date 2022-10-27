@@ -60,8 +60,8 @@ export default function UserGames() {
             })}
           </div>
           <div className={style.game_box}>
-            <span className={style.game_data}>{(elem?.status === true) ? ('In Progress') : ('Completed')}</span>
-            <span className={style.game_data}>{`Deadline: ${getDeadline(elem?.createdAt)}`}</span>
+            <span className={style.game_data}>{(elem?.status) ? ('In Progress') : ('Completed')}</span>
+            <span className={style.game_data}>{`Deadline: ${getDeadline(elem.createdAt)}`}</span>
           </div>
         </div>
       ))}

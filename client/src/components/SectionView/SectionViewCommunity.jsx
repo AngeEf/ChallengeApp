@@ -30,6 +30,8 @@ export default function SectionViewCommunity() {
     <>
       <div className={style.section_data}>
         <div>
+          {/* <Link to="/api/#" className="me-3">Все сообщества</Link> */}
+          {/* <Link to="/api/#">Управление</Link> */}
           <Link to="/api/#" className={style.section_links}>Все сообщества</Link>
           <Link to="/api/#" className={style.section_links}>Управление</Link>
         </div>
