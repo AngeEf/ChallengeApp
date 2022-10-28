@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Challenge.init({
     image: DataTypes.TEXT,
+    icon_image: DataTypes.TEXT,
     title: DataTypes.STRING,
     subtitle: DataTypes.TEXT,
     category: DataTypes.STRING,
