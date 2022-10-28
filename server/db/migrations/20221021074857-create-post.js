@@ -24,6 +24,7 @@ module.exports = {
       },
       image: {
         type: Sequelize.TEXT,
+        defaultValue: null,
       },
       content: {
         type: Sequelize.TEXT,

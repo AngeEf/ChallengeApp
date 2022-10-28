@@ -52,7 +52,7 @@ module.exports = {
     },
     {
       image: 'images/ch11.jpeg',
-      icon_image: '',
+      icon_image: 'images/icon16.jpeg',
       title: 'Сбрось лишний вес!',
       subtitle: 'Очисти организм и сбрось лишние килограммы',
       category: 'food',
@@ -78,7 +78,7 @@ module.exports = {
     },
     {
       image: 'images/ch7.jpeg',
-      icon_image: '',
+      icon_image: 'images/icon17.jpeg',
       title: 'Минимализм челлендж',
       subtitle: 'Модный челлендж про свободу и верность себе',
       category: 'lifestyle',
@@ -86,7 +86,7 @@ module.exports = {
     },
     {
       image: 'images/ch6.jpeg',
-      icon_image: '',
+      icon_image: 'images/icon18.jpeg',
       title: 'Для сладкоежек',
       subtitle: 'Сладкое делает людей счастливее',
       category: 'food',
