@@ -53,7 +53,7 @@ export default function CommunityView() {
 
   // console.log('admin', admin?.name);
   // console.log('user', user?.name);
-  console.log('isMember', isMember);
+  // console.log('isMember', isMember);
   // console.log('image', communities.image);
 
   return (

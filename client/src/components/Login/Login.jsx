@@ -9,14 +9,17 @@ export default function Login() {
   const navigate = useNavigate();
   return (
     <div className={style.wrapper}>
-      <form onSubmit={(e) => { dispatch(loginUser(e, Object.fromEntries(new FormData(e.target)))); navigate('/'); }}>
+      <form
+        className={style.form}
+        onSubmit={(e) => { dispatch(loginUser(e, Object.fromEntries(new FormData(e.target)))); navigate('/'); }}
+      >
         <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
+          <label htmlFor="exampleInputEmail1" className={`${style.form_title}`}>
             Email
             <input
               name="email"
               type="email"
-              className="form-control"
+              className={`${style.form_control}`}
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
@@ -24,17 +27,17 @@ export default function Login() {
           </label>
         </div>
         <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className={`${style.form_title}`}>
             Пароль
             <input
               name="password"
               type="password"
-              className="form-control"
+              className={`${style.form_control}`}
               id="exampleInputPassword1"
             />
           </label>
         </div>
-        <button type="submit" className="btn btn-primary">Войти</button>
+        <button type="submit" className="btn-main align-self-center mt-5">Войти</button>
       </form>
     </div>
   );

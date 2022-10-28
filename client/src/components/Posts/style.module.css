@@ -3,7 +3,7 @@
     padding: 1rem;
 }
 
-label {
+.label {
     margin-top: 2rem;
     margin-bottom: 2rem;
     font-size: 18px;
@@ -114,4 +114,6 @@ label {
     color: #6e1423;
     font-size: 24px;
   }
-
+.img {
+  width: 100%;
+}

@@ -24,7 +24,14 @@ export default function CardItemChallenge() {
         <Card className={style.card} key={el.id} style={{ border: 'none' }}>
           <div className={style.cart_img}>
             {/* <Card.Img className={style.cart_photo} variant="top" src={el.image} /> */}
-            <Card.Img style={{ border: 'none' }} className={style.cart_photo} variant="top" src={el?.image ? `http://localhost:3001/${el?.image}` : image} />
+            <Card.Img
+              // style={{
+              //   width: '100%', height: '100%', objectFit: 'contain', border: 'none',
+              // }}
+              className={style.cart_photo}
+              variant="top"
+              src={el?.image ? `http://localhost:3001/${el?.icon_image}` : image}
+            />
           </div>
           <Card.Body className={style.card__body}>
             <Card.Title>{el?.title}</Card.Title>

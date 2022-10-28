@@ -11,59 +11,60 @@ export default function SingUp() {
 
   return (
     <div className={style.wrapper}>
-      <form onSubmit={(e) => {
-        dispatch(signupUser(e, new FormData(e.target)));
-        navigate('/');
-      }}
+      <form
+        className={style.form}
+        onSubmit={(e) => {
+          dispatch(signupUser(e, new FormData(e.target)));
+          navigate('/');
+        }}
       >
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
+        <div>
+          <label htmlFor="exampleInputEmail1" className={`${style.form_title}`}>
             Имя
             <input
               name="name"
               type="text"
-              className="form-control"
+              className={`${style.form_control}`}
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
           </label>
         </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
+        <div>
+          <label htmlFor="exampleInputEmail1" className={`${style.form_title}`}>
             Email
             <input
               name="email"
               type="email"
-              className="form-control"
+              className={`${style.form_control}`}
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
           </label>
         </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
+        <div>
+          <label htmlFor="exampleInputPassword1" className={`${style.form_title}`}>
             Пароль
             <input
               name="password"
               type="password"
-              className="form-control"
+              className={`${style.form_control}`}
               id="exampleInputPassword1"
             />
           </label>
         </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            Пароль
+        <div>
+          <label htmlFor="exampleInputPassword1" className={`${style.form_title}`}>
             <input
               name="avatar"
               // onChange={(e) => setImg(e.target.files[0])}
               type="file"
-              className="form-control"
+              className={`${style.form_img}`}
               id="exampleInputPassword1"
             />
           </label>
         </div>
-        <button type="submit" className="btn btn-primary">Зарегестрироваться</button>
+        <button type="submit" className="btn-main align-self-center mt-5">Зарегестрироваться</button>
       </form>
     </div>
   );

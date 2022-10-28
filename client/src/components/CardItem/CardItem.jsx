@@ -8,7 +8,7 @@ import style from './style.module.css';
 export default function CardItem({ navigateHandler, community }) {
   const image = 'https://i.pinimg.com/564x/af/53/c4/af53c4688d8dfa0614adf6936ae410ea.jpg';
 
-  console.log(community.title);
+  // console.log(community.title);
   return (
     <>
       <Card className={style.card} style={{ border: 'none' }}>

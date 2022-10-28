@@ -28,12 +28,16 @@ export default function SectionChallenges() {
 
             <div className={style.card} onClick={() => navigate(`/challenge/${el.id}`)} key={el.id}>
               <div className={style.card_box}>
-                {console.log(el)}
-                <img className={style.card_img} src={`http://localhost:3001/${el.image}`} alt="challeng" />
+                {/* {console.log(el)} */}
+                <img
+                  className={style.card_img}
+                  src={`http://localhost:3001/${el?.icon_image}`}
+                  alt="challeng"
+                />
               </div>
               <div className={style.card_content}>
-                <h3 className={style.card_title}>{el.title}</h3>
-                <h5 className={style.card_subtitle}>{el.subtitle}</h5>
+                <h3 className={style.card_title}>{el?.title}</h3>
+                <h5 className={style.card_subtitle}>{el?.subtitle}</h5>
               </div>
             </div>
           ))}
