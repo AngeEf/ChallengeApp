@@ -20,7 +20,7 @@ module.exports = {
     {
       image: 'images/ch15.webp',
       icon_image: 'images/icon4.jpeg',
-      title: 'Железо',
+      title: 'Железо Фитнес',
       subtitle: 'Тягаем железо каждый день!',
       category: 'sport',
       description: `Можно заниматься каждый день и по три часа, но при этом нужно расписать тренировки на неделю таким образом, чтобы одну и ту же группу мышц прорабатывать только раз 3 дня. Например, сегодня прорабатываем верхний пресс и ягодицы, завтра нижний пресс и спину, третий день ноги и руки. Как то так, так и эффект будет быстрее и повреждённые мышцы успеют восстановиться.
@@ -52,7 +52,7 @@ module.exports = {
     },
     {
       image: 'images/ch11.jpeg',
-      icon_image: 'images/icon16.jpeg',
+      icon_image: 'images/icon16.png',
       title: 'Сбрось лишний вес!',
       subtitle: 'Очисти организм и сбрось лишние килограммы',
       category: 'food',
@@ -118,7 +118,7 @@ module.exports = {
     },
     {
       image: 'images/ch1.jpeg',
-      icon_image: 'images/icon3.jpeg',
+      icon_image: 'images/icon7.png',
       title: 'Качаем Пресс',
       subtitle: '25 дней работаем с прессом!',
       category: 'sport',
