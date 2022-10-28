@@ -19,10 +19,16 @@
   margin-bottom: 0;
   margin-left: 1rem;
   text-decoration: none;
+  transition: all .2s;
+}
+
+.admin__postTitle:hover {
+  color: black;
+
 }
 
 .admin__postText {
-  height: 16px;
+  /* height: 16px; */
   font-size: 16px;
 
 }

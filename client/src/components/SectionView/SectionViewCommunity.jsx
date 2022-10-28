@@ -37,7 +37,7 @@ export default function SectionViewCommunity() {
         </div>
         {/* <button className="btn-main" onClick={() => navigate('/community/new')} type="button">Создать сообщество</button> */}
         {user?.id ? <button className="btn-main" onClick={() => navigate('/community/new')} type="button">Создать сообщество</button>
-          : <button onClick={() => navigate('/login')} type="button">Создать сообщество</button>}
+          : <button className="btn-main" onClick={() => navigate('/login')} type="button">Создать сообщество</button>}
       </div>
       <div className={style.section}>
         {Array.isArray(communities) && communities?.map((el) => <CardItem key={el.id} community={el} navigateHandler={navigateHandler} />)}
