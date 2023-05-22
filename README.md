@@ -10,7 +10,7 @@
 
 Отслеживайте прогресс выполнения челленджей на своей странице прогресса, так же там будут отображаться новые задания от сообществ в которые вы вступили.
 
-![Иллюстрация к проекту](https://github.com/AngeEf/ChallengeApp/raw/main/community.png)
+![Иллюстрация к проекту](https://github.com/AngeEf/ChallengeApp/raw/main/progress.png)
 
 Installation
 Установка
